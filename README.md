@@ -7,7 +7,7 @@ The source code will be released when the plugin reaches an acceptable level.
 
 ## Preview
 
-<img src="/pictures/NSC-TABCOMPLETER.png.png" />
+<img src="/pictures/NSC-TABCOMPLETER.png" />
 
 ### Features
 
