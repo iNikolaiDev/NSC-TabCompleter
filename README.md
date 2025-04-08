@@ -7,7 +7,7 @@ The source code will be released when the plugin reaches an acceptable level.
 
 ## Preview
 
-<img alt="AdvancePlHide" src="./pictures/NSC-TABCOMPLETER.png.png" />
+<img alt="AdvancePlHide" src="pictures/NSC-TABCOMPLETER.png.png" />
 
 ### Features
 
