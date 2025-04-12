@@ -54,3 +54,16 @@ And your output is something similar as below.
 The plugin also supports gradients, which you can use for customization. Here's an example:
 
 <img src="/pictures/GRADIENT-PREVIEW.png" />
+
+![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/PERMISSIONS.png?token=GHSAT0AAAAAADA6JLRIG5OHFJ36B4BX2F3AZ72JBUQ)
+
+| Permission | Description |
+| ------------- | ------------- |
+| nsctab.reload | Reloads the plugin config file. |
+| nsctab.group.‹group› | Applies the group to the player. |
+| nsctab.whitelist.command.‹command› | Applies command to the player as a whitelist. |
+| nsctab.blacklist.command.‹command› | Applies command to the player as a blacklist. |
+| nsctab.bypass.commands.execution | Apply bypass command execution for the player. |
+| nsctab.bypass.commands.tabcomplation | Apply bypass tab completion for the player. |
+| nsctab.include.commands.execution | Including player in command execution. |
+| nsctab.include.commands.tabcomplation | Including player in tab complation. |
