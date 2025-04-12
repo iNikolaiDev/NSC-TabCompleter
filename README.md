@@ -55,7 +55,12 @@ The plugin also supports gradients, which you can use for customization. Here's 
 
 <img src="/pictures/GRADIENT-PREVIEW.png" />
 
+It also supports the multiple color feature, allowing you to do this using your favorite colors. Here's how to do it:
+
+`<#a800a8, #f51063, #ff8e44>♦ NSC TabCompleter ›</#Gradient>`
+
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/PERMISSIONS.png?token=GHSAT0AAAAAADA6JLRIG5OHFJ36B4BX2F3AZ72JBUQ)
+Permissions allow you to make your own customizations.
 
 | Permission | Description |
 | ------------- | ------------- |
