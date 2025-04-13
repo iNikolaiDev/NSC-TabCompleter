@@ -1,26 +1,26 @@
 # NSC TabCompleter
 
-<img src="/pictures/NSC-TABCOMPLETER.png" />
+![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/NSC-TABCOMPLETER.png)
 
-<img src="/pictures/2025-04-02_18.52.58.png" />
+![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/PREVIEW.png)
 
 This plugin is a tool for managing command tab completion.
 
 My Discord: nikolai0803
 My Telegram: @NikoIaiDev
 
-<img src="/pictures/GROUPS.png" />
+![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/GROUPS.png)
 
 You can easily create an group and manage it by like below.
 
-<img src="/pictures/ADDGROUP.png" />
+![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/HOW-ADD-GROUP.png)
 
 * **newgroup**: You can choose any name you want for your group.
 * **mode**: You can choose between "Blacklist" and "Whitelist" mode to decide what the group should do.
 * **commands**: The list of commands that you want the group to blacklist or whitelist according to the mode.
 * **priority**: Group action priority, if you want two groups to have the same priority, set their numbers the same.
 
-<img src="/pictures/FEATURES.png" />
+![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/FEATURES.png)
 
 * Grouping for better management.
 * Blacklist and Whitelist.
@@ -31,29 +31,31 @@ You can easily create an group and manage it by like below.
 * Bypass permissions for customize.
 * Multiple Gradients support.
   
-<img src="/pictures/HOWS-WORK.png" />
+![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/HOWS-WORK.png)
 
 First of all, you need a permission management plugin, I suggest you luckperms. Using this unique plugin, you can easily apply groups to players like below.
 
-<img src="/pictures/APPLY-FOR-PLAYER.png" />
+![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/HOW-APPLY-GROUP.png)
 
 If you have multiple groups applied to the player, they will be combined.
 
-<img src="/pictures/PLAYERS-GROUPS.png" />
+![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/MERGED-GROUPS.png)
 
 For example, you have two groups applied to the player, which are the following commands:
 
-<img src="/pictures/GROUP-1-COMMANDS.png" /><img src="/pictures/GROUP-2-COMMANDS.png" />
+![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/GROUP1-COMMANDS.png)
+
+![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/GROUP2-COMMANDS.png)
 
 And your output is something similar as below.
 
-<img src="/pictures/MERGED-GROUP-COMMANDS.png" />
+![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/MERGED-RESULT.png)
 
-<img src="/pictures/GRADIENT.png" />
+![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/GRADIENT.png)
 
 The plugin also supports gradients, which you can use for customization. Here's an example:
 
-<img src="/pictures/GRADIENT-PREVIEW.png" />
+![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/GRADIENT-PREVIEW.png)
 
 It also supports the multiple color feature, allowing you to do this using your favorite colors. Here's how to do it:
 
@@ -72,3 +74,35 @@ Permissions allow you to make your own customizations.
 | nsctab.bypass.commands.tabcomplation | Apply bypass tab completion for the player. |
 | nsctab.include.commands.execution | Including player in command execution. |
 | nsctab.include.commands.tabcomplation | Including player in tab complation. |
+
+![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/HOW-COMPILE.png)
+### Requirements:
+- Java 23+ ([Download Link](https://www.oracle.com/fr/java/technologies/downloads/))
+- Gradle 8.13 ([Download Link](https://gradle.org/releases/))
+
+### Step 1:
+You must add your **Gradle** and **Java** path to system path ( Syntax: `<Your gradle or java folder path>\bin` )
+
+Gradle Example: D:\Programs\Gradle-8.13\bin
+
+Java Example: C:\Program Files\Java\jdk-23\bin
+
+![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/HOW-ADD-PATH.png)
+
+### Step 2:
+You need to open a cmd terminal in the folder. Do the following:
+![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/STEP2-1.png)
+
+And type "Cmd" in the Bar:
+
+![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/STEP2-2.png)
+
+Then you will see a terminal where you need to enter the "**Gradlew**" command. This command will prepare the project required prerequisites.
+
+![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/STEP2-3.png)
+
+And finally compile with the "**Gradlew build**" command.
+
+![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/STEP2-4.png)
+
+You can see the compiled result in the Output folder.
