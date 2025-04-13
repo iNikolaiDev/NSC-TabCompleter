@@ -1,21 +1,22 @@
 name: NSCTabCompleter
-version: 2.2.1
+version: 2.2.2
 author: Nikolai
 main: com.nikolai.nsctabcompleter.Main
-api-version: 1.21
+api-version: 1.13
 
 commands:
   nsctabcompleter:
 
 permissions:
   nsctab.reload:
-    description: Allows the plugin to reload
+    default: op
+  nsctab.update:
     default: op
   nsctab.bypass.commands.tabcomplation:
     default: false
   nsctab.include.commands.tabcomplation:
     default: false
-  nsctab.bypass.commands.blocking:
+  nsctab.bypass.commands.execution:
     default: false
-  nsctab.include.commands.blocking:
+  nsctab.include.commands.execution:
     default: false

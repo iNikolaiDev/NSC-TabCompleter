@@ -124,6 +124,11 @@ public class NSCTabCompleterCommand implements TabExecutor
         }
         else if (args[0].equalsIgnoreCase("update"))
         {
+            if (!sender.hasPermission("nsctab.update"))
+            {
+                sender.sendMessage("§5♦ §dError §5§l› §dYou don't have permission!");
+                return true;
+            }
             if (args[1].equalsIgnoreCase("player"))
             {
                 if (args.length < 3)
@@ -179,25 +184,13 @@ public class NSCTabCompleterCommand implements TabExecutor
         }
         else if (args[0].equalsIgnoreCase("changelog"))
         {
-            sender.sendMessage("§8――― §5•§d♦§5• §8――― §dv2.2.0 §8――― §5• §d« Change Log » §5• §8―――――――――― §5•§d♦§5• §8―――");
+            sender.sendMessage("§8――― §5•§d♦§5• §8――― §dv2.2.2 §8――― §5• §d« Change Log » §5• §8―――――――――― §5•§d♦§5• §8―――");
             sender.sendMessage(" ");
             sender.sendMessage("   §2•§a♦§2• §aWhat's New:");
             sender.sendMessage(" ");
 
-            sender.sendMessage(" §a♦ §aPermission §2‹ nsctab.whitelist.command.<cmd> §2›");
-            sender.sendMessage(" §a♦ §aPermission §2‹ nsctab.blacklist.command.<cmd> §2›");
-            sender.sendMessage(" §a♦ §aPermission §2‹ nsctab.include.commands.execution §2›");
-            sender.sendMessage(" §a♦ §aPermission §2‹ nsctab.include.commands.tabcomplation §2›");
-            sender.sendMessage(" ");
-            sender.sendMessage(" §a♦ §aEnable or disable tab-complation in config.");
-            sender.sendMessage(" §a♦ §aBlacklist or whitelist commands with permission.");
-            sender.sendMessage(" ");
-            sender.sendMessage("   §e•§6♦§e• §6Fixes:");
-            sender.sendMessage(" ");
-            sender.sendMessage(" §e♦ §6Fixed known bugs.");
-            sender.sendMessage(" ");
-            sender.sendMessage(" §d•§5♦§d• Improved permissions and plugin features compatibility with op rank.");
-            sender.sendMessage(" ");
+            sender.sendMessage(" §a♦ §aPlugin update checker.");
+
             sender.sendMessage("§8――― §5•§d♦§5• §8―――――――――― §5• §d« §8―――― ―――― ―――― §d» §5• §8―――――――――― §5•§d♦§5• §8―――");
         }
         else if (args[0].equalsIgnoreCase("group") && args[1].equalsIgnoreCase("information"))

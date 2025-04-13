@@ -5,27 +5,24 @@ plugins {
 }
 
 group = 'com.nikolai'
-version = '2.2.1'
+version = '2.2.2'
 
 repositories {
     mavenCentral()
-    maven { url 'https://repo.papermc.io/repository/maven-public/' } // مخزن Paper
+    maven { url 'https://repo.papermc.io/repository/maven-public/' }
 }
-
 dependencies {
-    compileOnly 'io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT' // Paper API
+    compileOnly 'io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT'
 }
-
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17)) // جاوا 17 برای Paper
+        languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
-
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
-artifacts { // task 'build' runs generates uberjar
+artifacts {
     archives shadowJar
 }
 shadowJar {
