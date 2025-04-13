@@ -1,0 +1,34 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+
+group = 'com.nikolai'
+version = '2.2.1'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://repo.papermc.io/repository/maven-public/' } // مخزن Paper
+}
+
+dependencies {
+    compileOnly 'io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT' // Paper API
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17)) // جاوا 17 برای Paper
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+artifacts { // task 'build' runs generates uberjar
+    archives shadowJar
+}
+shadowJar {
+    archiveFileName = "${rootProject.name}-${version}.jar"
+    destinationDirectory.set(new File("OutPut"))
+}

@@ -1,0 +1,29 @@
+
+settings:
+  tab-complation: true
+  block-execution: true
+  op-bypass: false
+  prioritization-enabled: true
+  insufficient-permission-message: " <#a800a8, #f51063, #ff8e44>♦ NSC TabCompleter</#Gradient> &#ff8e44&l› &#FFFFFFThis command doesn't exists."
+
+groups:
+  administrator:
+    mode: whitelist
+    commands:
+      - heal
+      - op
+      - plugins
+    priority: 5
+
+  mod:
+    mode: whitelist
+    commands:
+      - xp
+    priority: 3
+
+  default:
+    mode: whitelist
+    commands:
+      - luckperms
+      - nsctabcompleter
+    priority: 3
