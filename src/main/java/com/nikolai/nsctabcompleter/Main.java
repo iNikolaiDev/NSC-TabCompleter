@@ -37,6 +37,15 @@ public class Main extends JavaPlugin
         Bukkit.getConsoleSender().sendMessage("§8----------------------------------------------");
         Bukkit.getConsoleSender().sendMessage(" ");
 
+        new UpdateChecker(this, 123738).getVersion(version ->
+        {
+            if (!this.getDescription().getVersion().equals(version))
+            {
+                Bukkit.getConsoleSender().sendMessage("§8[NSC TabCompleter]: §dYour using outdated version (§c" + this.getDescription().getVersion() + "§d), There is a new update available §6" + version +"§d.");
+                Bukkit.getConsoleSender().sendMessage("§8[NSC TabCompleter]: §dDownload Link: https://www.spigotmc.org/resources/nsc-tabcompleter.123738");
+            }
+        });
+
     }
     @Override
     public void onDisable()
