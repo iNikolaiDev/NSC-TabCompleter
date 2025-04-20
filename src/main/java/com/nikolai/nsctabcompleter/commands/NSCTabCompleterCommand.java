@@ -160,7 +160,8 @@ public class NSCTabCompleterCommand implements TabExecutor
                 sender.sendMessage("§5♦ §dError §5§l› §dYou don't have permission!");
                 return true;
             }
-            Main.configManager.loadConfigurationFile();
+            
+            plugin.configManager.loadConfigurationFile();
             for (Player player : Bukkit.getOnlinePlayers()) player.updateCommands();
             sender.sendMessage(" §5♦ §dNSC §5§l› §dConfiguration file successfully reloaded.");
         }
@@ -184,12 +185,16 @@ public class NSCTabCompleterCommand implements TabExecutor
         }
         else if (args[0].equalsIgnoreCase("changelog"))
         {
-            sender.sendMessage("§8――― §5•§d♦§5• §8――― §dv2.2.2 §8――― §5• §d« Change Log » §5• §8―――――――――― §5•§d♦§5• §8―――");
+            sender.sendMessage("§8――― §5•§d♦§5• §8――― §dv2.3.0 §8――― §5• §d« Change Log » §5• §8―――――――――― §5•§d♦§5• §8―――");
             sender.sendMessage(" ");
             sender.sendMessage("   §2•§a♦§2• §aWhat's New:");
             sender.sendMessage(" ");
 
-            sender.sendMessage(" §a♦ §aPlugin update checker.");
+            sender.sendMessage(" §2♦ §aSupport for command arguments to manage tab completion list.");
+            sender.sendMessage(" §2♦ §aDebugging system.");
+            sender.sendMessage(" ");
+            sender.sendMessage(" §4♦ §cKnown bugs fixed.");
+            sender.sendMessage(" ");
 
             sender.sendMessage("§8――― §5•§d♦§5• §8―――――――――― §5• §d« §8―――― ―――― ―――― §d» §5• §8―――――――――― §5•§d♦§5• §8―――");
         }
@@ -212,6 +217,7 @@ public class NSCTabCompleterCommand implements TabExecutor
                 sender.sendMessage("§8――― §5•§d♦§5• §8――――――――― §5• §d« §8―――― §d» §5• §8――――――――― §5•§d♦§5• §8―――");
             }
         }
+
         return true;
     }
 }

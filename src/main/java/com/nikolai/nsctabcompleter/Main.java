@@ -10,7 +10,7 @@ import com.nikolai.nsctabcompleter.listeners.TabCompleteListener;
 public class Main extends JavaPlugin
 {
     public static Main plugin;
-    public static ConfigurationFileManager configManager;
+    public ConfigurationFileManager configManager;
 
     @SuppressWarnings("deprecation")
     @Override
@@ -23,6 +23,9 @@ public class Main extends JavaPlugin
         getServer().getPluginManager().registerEvents(new CommandBlockerListener(this), this);
 
         this.getCommand("nsctabcompleter").setExecutor(new NSCTabCompleterCommand(this));
+        this.getCommand("nsctabcompleter").setTabCompleter(new NSCTabCompleterCommand(this));
+
+        getConfigManager().registerTabCompleters();
 
         Bukkit.getConsoleSender().sendMessage(" ");
         Bukkit.getConsoleSender().sendMessage("§8----------------------------------------------");
@@ -47,11 +50,16 @@ public class Main extends JavaPlugin
         });
 
     }
+
     @Override
     public void onDisable()
     {
-        configManager.saveConfigurationFile();
+        if (configManager != null)
+        {
+            configManager.saveConfigurationFile();
+        }
     }
+
     public ConfigurationFileManager getConfigManager()
     {
         return configManager;

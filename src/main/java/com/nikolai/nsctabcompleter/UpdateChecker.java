@@ -35,5 +35,6 @@ public class UpdateChecker
                 plugin.getLogger().info("§8[NSC TabCompleter]: §dUnable to check for updates: " + e.getMessage());
             }
         });
-    }   
+    }
+
 }
