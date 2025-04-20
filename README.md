@@ -50,6 +50,17 @@ For example, you have two groups applied to the player, which are the following 
 And your output is something similar as below.
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/MERGED-RESULT.png)
+![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/ARGUMENTS.png)
+
+Support for command arguments has been available since version 2.3.0, allowing for better customization.
+
+![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/ARGUMENT-PREVIEW.png)
+
+You can manage the command arguments like below.
+
+![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/HOW-ADD-ARGUMENT.png)
+
+You should be careful that if you plan to manage arguments in a blacklist group, it will be applied if you have multiple whitelisted arguments in another group.
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/GRADIENT.png)
 
