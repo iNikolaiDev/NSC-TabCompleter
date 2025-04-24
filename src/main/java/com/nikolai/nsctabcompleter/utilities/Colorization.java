@@ -6,6 +6,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import org.bukkit.Bukkit;
+
 import net.md_5.bungee.api.ChatColor;
 
 public class Colorization
@@ -15,6 +17,12 @@ public class Colorization
 
     public static String applyColorization(String string)
     {
+        String version = Bukkit.getBukkitVersion().split("-")[0];
+
+        if (version.startsWith("1.13") || version.startsWith("1.14") || version.startsWith("1.15"))
+        {
+            return ChatColor.translateAlternateColorCodes('&', string.replaceAll("&#[A-Fa-f0-9]{6}", ""));
+        }
         string = applyGradient(string);
         string = applyHex(string);
         string = ChatColor.translateAlternateColorCodes('&', string);
@@ -97,9 +105,9 @@ public class Colorization
         hex = hex.replace("#", "");
         return new int[]
         {
-                Integer.valueOf(hex.substring(0, 2), 16),
-                Integer.valueOf(hex.substring(2, 4), 16),
-                Integer.valueOf(hex.substring(4, 6), 16)
+            Integer.valueOf(hex.substring(0, 2), 16),
+            Integer.valueOf(hex.substring(2, 4), 16),
+            Integer.valueOf(hex.substring(4, 6), 16)
         };
     }
 }

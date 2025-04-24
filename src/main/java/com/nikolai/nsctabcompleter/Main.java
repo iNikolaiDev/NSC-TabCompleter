@@ -40,15 +40,20 @@ public class Main extends JavaPlugin
         Bukkit.getConsoleSender().sendMessage("§8----------------------------------------------");
         Bukkit.getConsoleSender().sendMessage(" ");
 
-        new UpdateChecker(this, 123738).getVersion(version ->
+        new UpdateChecker(this, "iNikolaiDev", "NSC-TabCompleter", "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").getVersion(version ->
         {
-            if (!this.getDescription().getVersion().equals(version))
+            String currentVersion = getDescription().getVersion();
+
+            if (!currentVersion.equals(version))
             {
-                Bukkit.getConsoleSender().sendMessage("§8[NSC TabCompleter]: §dYour using outdated version (§c" + this.getDescription().getVersion() + "§d), There is a new update available §6" + version +"§d.");
-                Bukkit.getConsoleSender().sendMessage("§8[NSC TabCompleter]: §dDownload Link: https://www.spigotmc.org/resources/nsc-tabcompleter.123738");
+                Bukkit.getConsoleSender().sendMessage("§8[NSC TabCompleter]: §dYou are using outdated version (§c" + currentVersion + "§d). A new update is available: §6" + version + "§d.");
+                Bukkit.getConsoleSender().sendMessage("§8[NSC TabCompleter]: §dDownload Link: https://github.com/Nikolai/NSCTabCompleter/releases/latest");
+            }
+            else
+            {
+                Bukkit.getConsoleSender().sendMessage("§8[NSC TabCompleter]: §dYou are running the latest version (§6" + version + "§d).");
             }
         });
-
     }
 
     @Override

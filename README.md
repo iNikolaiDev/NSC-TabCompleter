@@ -67,6 +67,11 @@ Permissions allow you to make your own customizations.
 | Permission | Description |
 | ------------- | ------------- |
 | nsctab.reload | Reloads the plugin config file. |
+| nsctab.update.all | Update the players commands. |
+| nsctab.update.player | Update the player's commands. |
+| nsctab.help | See the plugin help. |
+| nsctab.changelog | See the plugin update changelog. |
+| nsctab.groups.information | Access to group's information. |
 | nsctab.group.‹group› | Applies the group to the player. |
 | nsctab.whitelist.command.‹command› | Applies command to the player as a whitelist. |
 | nsctab.blacklist.command.‹command› | Applies command to the player as a blacklist. |

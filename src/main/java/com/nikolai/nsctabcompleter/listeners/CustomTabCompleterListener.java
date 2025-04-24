@@ -9,7 +9,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.util.StringUtil;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class CustomTabCompleterListener implements TabCompleter
 {
@@ -47,7 +46,7 @@ public class CustomTabCompleterListener implements TabCompleter
         if (player.isOp() && configManager.isOpByPassTrue())
         {
             plugin.getConfigManager().logDebug("[NSC TabCompleter] Player {0} is OP and op-bypass is enabled, returning all suggestions", player.getName());
-            return getDefaultSuggestions(args);
+            return null;
         }
 
         List<String> playerGroups = configManager.getPlayerGroups(player);
@@ -88,33 +87,6 @@ public class CustomTabCompleterListener implements TabCompleter
         if (filteredSuggestions.isEmpty())
         {
             plugin.getConfigManager().logDebug("[NSC TabCompleter] No suggestions found for command {0}, returning null", command);
-            return null;
-        }
-
-        return filteredSuggestions;
-    }
-
-    private List<String> getDefaultSuggestions(String[] args)
-    {
-        plugin.getConfigManager().logDebug("[NSC TabCompleter] Getting default suggestions for args: {0}", Arrays.toString(args));
-
-        List<String> playerGroups = configManager.getCurrentGroups().keySet().stream()
-                .filter(group -> !group.equals("default"))
-                .collect(Collectors.toList());
-
-        playerGroups.add("default");
-
-        Set<String> suggestions = configManager.getSubArgsForCommand(playerGroups, command, args);
-        plugin.getConfigManager().logDebug("[NSC TabCompleter] Default suggestions retrieved: {0}", suggestions);
-
-        String lastArg = args.length > 0 ? args[args.length - 1].toLowerCase() : "";
-        List<String> filteredSuggestions = StringUtil.copyPartialMatches(lastArg, suggestions, new ArrayList<>());
-        Collections.sort(filteredSuggestions);
-        plugin.getConfigManager().logDebug("[NSC TabCompleter] Filtered default suggestions: {0}", filteredSuggestions);
-
-        if (filteredSuggestions.isEmpty())
-        {
-            plugin.getConfigManager().logDebug("[NSC TabCompleter] No default suggestions found for command {0}, returning null", command);
             return null;
         }
 

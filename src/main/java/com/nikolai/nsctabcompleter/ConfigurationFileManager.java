@@ -47,8 +47,8 @@ public class ConfigurationFileManager
         }
     }
 
-    public void saveConfigurationFile() {
-        logDebug("Attempting to save configuration file to: {0}", configFile.getPath());
+    public void saveConfigurationFile()
+    {
         try
         {
             config.save(configFile);
@@ -62,7 +62,6 @@ public class ConfigurationFileManager
 
     private void initializeGroups()
     {
-        logDebug("[NSC TabCompleter] Initializing groups, clearing existing groups");
         groups.clear();
 
         if (config.isConfigurationSection("groups"))
@@ -464,7 +463,8 @@ public class ConfigurationFileManager
 
     public void logDebug(String message, Object... args)
     {
-        if (isDebugEnabled()) {
+        if (isDebugEnabled())
+        {
             plugin.getLogger().log(Level.INFO, "[NSC TabCompleter] " + message, args);
         }
     }

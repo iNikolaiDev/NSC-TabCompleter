@@ -55,7 +55,7 @@ public class CommandBlockerListener implements Listener
         String whitelistPerm = "nsctab.whitelist.command." + command;
         String blacklistPerm = "nsctab.blacklist.command." + command;
         boolean isWhitelisted = player.hasPermission(whitelistPerm) && player.isPermissionSet(whitelistPerm);
-        boolean isBlacklisted = player.hasPermission(blacklistPerm);
+        boolean isBlacklisted = player.hasPermission(blacklistPerm) && player.isPermissionSet(whitelistPerm);
 
         plugin.getConfigManager().logDebug("Permission check for command {0}: whitelist={1}, blacklist={2}",
                 command, isWhitelisted, isBlacklisted);
@@ -65,7 +65,7 @@ public class CommandBlockerListener implements Listener
             plugin.getLogger().log(Level.WARNING, "[NSC TabCompleter] Command {0} blocked for player {1} due to blacklist permission",
                     new Object[]{command, player.getName()});
             event.setCancelled(true);
-            player.sendMessage(configManager.insufficientPermissionMessage());
+            player.sendMessage(Colorization.applyColorization(configManager.insufficientPermissionMessage()));
             plugin.getConfigManager().logDebug("Command {0} cancelled for player {1}", command, player.getName());
             return;
         }
@@ -75,7 +75,7 @@ public class CommandBlockerListener implements Listener
             plugin.getLogger().log(Level.WARNING, "[NSC TabCompleter] Command {0} blocked for player {1} due to no whitelist permission or groups",
                     new Object[]{command, player.getName()});
             event.setCancelled(true);
-            player.sendMessage(configManager.insufficientPermissionMessage());
+            player.sendMessage(Colorization.applyColorization(configManager.insufficientPermissionMessage()));
             plugin.getConfigManager().logDebug("Command {0} cancelled for player {1} due to no permissions", command, player.getName());
             return;
         }

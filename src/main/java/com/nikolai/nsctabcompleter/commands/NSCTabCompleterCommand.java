@@ -124,7 +124,7 @@ public class NSCTabCompleterCommand implements TabExecutor
         }
         else if (args[0].equalsIgnoreCase("update"))
         {
-            if (!sender.hasPermission("nsctab.update"))
+            if (!sender.hasPermission("nsctab.update.player") || !sender.hasPermission("nsctab.update.all"))
             {
                 sender.sendMessage("§5♦ §dError §5§l› §dYou don't have permission!");
                 return true;
@@ -167,6 +167,11 @@ public class NSCTabCompleterCommand implements TabExecutor
         }
         else if (args[0].equalsIgnoreCase("help"))
         {
+            if (!sender.hasPermission("nsctab.help"))
+            {
+                sender.sendMessage("§5♦ §dError §5§l› §dYou don't have permission!");
+                return true;
+            }
             sender.sendMessage("§8――― §5•§d♦§5• §8―――――――――― §5• §d« Help » §5• §8―――――――――― §5•§d♦§5• §8―――");
             sender.sendMessage(" ");
             sender.sendMessage("   §8•§r♦§8• §7Sub commands");
@@ -185,21 +190,36 @@ public class NSCTabCompleterCommand implements TabExecutor
         }
         else if (args[0].equalsIgnoreCase("changelog"))
         {
-            sender.sendMessage("§8――― §5•§d♦§5• §8――― §dv2.3.0 §8――― §5• §d« Change Log » §5• §8―――――――――― §5•§d♦§5• §8―――");
+            if (!sender.hasPermission("nsctab.changelog"))
+            {
+                sender.sendMessage("§5♦ §dError §5§l› §dYou don't have permission!");
+                return true;
+            }
+            sender.sendMessage("§8――― §5•§d♦§5• §8――― §dv2.3.1 §8――― §5• §d« Change Log » §5• §8―――――――――― §5•§d♦§5• §8―――");
             sender.sendMessage(" ");
             sender.sendMessage("   §2•§a♦§2• §aWhat's New:");
             sender.sendMessage(" ");
 
-            sender.sendMessage(" §2♦ §aSupport for command arguments to manage tab completion list.");
-            sender.sendMessage(" §2♦ §aDebugging system.");
+            sender.sendMessage(" §2♦ §aAdded Spigot API Support for Spigot platform.");
+            sender.sendMessage(" §2♦ §aPermission  §2‹ §ansctab.update.all §2›");
+            sender.sendMessage(" §2♦ §aPermission  §2‹ §ansctab.update.player §2›");
+            sender.sendMessage(" §2♦ §aPermission  §2‹ §ansctab.help §2›");
+            sender.sendMessage(" §2♦ §aPermission  §2‹ §ansctab.changelog §2›");
+            sender.sendMessage(" §2♦ §aPermission  §2‹ §ansctab.groups.information §2›");
             sender.sendMessage(" ");
-            sender.sendMessage(" §4♦ §cKnown bugs fixed.");
+            sender.sendMessage(" §4♦ §cFixed command execution working issue when you op.");
+            sender.sendMessage(" §4♦ §cFixed message colorization issue.");
             sender.sendMessage(" ");
 
             sender.sendMessage("§8――― §5•§d♦§5• §8―――――――――― §5• §d« §8―――― ―――― ―――― §d» §5• §8―――――――――― §5•§d♦§5• §8―――");
         }
         else if (args[0].equalsIgnoreCase("group") && args[1].equalsIgnoreCase("information"))
         {
+            if (!sender.hasPermission("nsctab.groups.information"))
+            {
+                sender.sendMessage("§5♦ §dError §5§l› §dYou don't have permission!");
+                return true;
+            }
             if (args[2].isEmpty() || !plugin.getConfigManager().isGroupExist(args[2]))
             {
                 sender.sendMessage("§5♦ §dError §5§l› §dInvalid group!");

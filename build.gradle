@@ -1,31 +1,46 @@
-plugins {
+plugins
+{
     id 'java'
     id 'maven-publish'
     id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
 group = 'com.nikolai'
-version = '2.3.0'
+version = '2.3.1'
 
-repositories {
+repositories
+{
     mavenCentral()
     maven { url 'https://repo.papermc.io/repository/maven-public/' }
+    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
 }
-dependencies {
+
+dependencies
+{
     compileOnly 'io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT'
+    compileOnly 'org.spigotmc:spigot-api:1.20.4-R0.1-SNAPSHOT'
 }
-java {
-    toolchain {
+
+java
+{
+    toolchain
+    {
         languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
-tasks.withType(JavaCompile) {
+
+tasks.withType(JavaCompile)
+{
     options.encoding = 'UTF-8'
 }
-artifacts {
+
+artifacts
+{
     archives shadowJar
 }
-shadowJar {
+
+shadowJar
+{
     archiveFileName = "${rootProject.name}-${version}.jar"
     destinationDirectory.set(new File("OutPut"))
 }
