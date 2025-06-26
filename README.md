@@ -6,8 +6,7 @@
 
 This plugin is a tool for managing command tab completion.
 
-My Discord: nikolai0803
-My Telegram: @NikoIaiDev
+If you have any issue contact me I will help you. (**My Discord: nikolai0803**, **My Telegram: @NikoIaiDev**)
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/GROUPS.png)
 
@@ -15,10 +14,10 @@ You can easily create an group and manage it by like below.
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/HOW-ADD-GROUP.png)
 
-* **newgroup**: You can choose any name you want for your group.
-* **mode**: You can choose between "Blacklist" and "Whitelist" mode to decide what the group should do.
-* **commands**: The list of commands that you want the group to blacklist or whitelist according to the mode.
-* **priority**: Group action priority, if you want two groups to have the same priority, set their numbers the same.
+* **newgroup**: You can choose any **name** you want for your group.
+* **mode**: You can choose between "**Blacklist**" and "**Whitelist**" mode to decide what the **group** should do.
+* **commands**: The **list of commands** that you want the group to **blacklist** or **whitelist** according to the mode.
+* **priority**: Group **action priority**, if you want two groups to have the same priority, set their numbers the same.
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/FEATURES.png)
 
@@ -30,14 +29,15 @@ You can easily create an group and manage it by like below.
 * Support html colors and & formats.
 * Bypass permissions for customize.
 * Multiple Gradients support.
+* Agruments customization.
   
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/HOWS-WORK.png)
 
-First of all, you need a permission management plugin, I suggest you luckperms. Using this unique plugin, you can easily apply groups to players like below.
+First of all, you need a **permission management plugin**, I suggest you **[LuckPerms](https://www.spigotmc.org/resources/luckperms.28140/)**. Using this unique plugin, you can easily **apply groups** to players like below.
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/HOW-APPLY-GROUP.png)
 
-If you have multiple groups applied to the player, they will be combined.
+If you have **multiple** groups applied to the player, they will be **combined**.
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/MERGED-GROUPS.png)
 
@@ -52,23 +52,23 @@ And your output is something similar as below.
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/MERGED-RESULT.png)
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/ARGUMENTS.png)
 
-Support for command arguments has been available since version 2.3.0, allowing for better customization.
+Support for command arguments has been available since **version 2.3.0**, allowing for better customization.
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/ARGUMENT-PREVIEW.png)
 
-You can manage the command arguments like below.
+You can **manage** the command arguments like below.
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/HOW-ADD-ARGUMENT.png)
 
-You should be careful that if you plan to manage arguments in a blacklist group, it will be applied if you have multiple whitelisted arguments in another group.
+**WARNING! You should be careful that if you plan to manage arguments in a blacklist group, it will be applied if you have multiple whitelisted arguments in another group.**
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/GRADIENT.png)
 
-The plugin also supports gradients, which you can use for customization. Here's an example:
+The plugin also **supports gradients**, which you can use for customization. Here's an example:
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/GRADIENT-PREVIEW.png)
 
-It also supports the multiple color feature, allowing you to do this using your favorite colors. Here's how to do it:
+It also supports the **multiple** color feature, allowing you to do this using your favorite colors. Here's how to do it:
 
 `<#a800a8, #f51063, #ff8e44>♦ NSC TabCompleter ›</#Gradient>`
 
