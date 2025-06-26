@@ -8,7 +8,7 @@ This **plugin** is a powerful tool for **managing command tab completion** in yo
 
 💬 If you encounter any issues, feel free to **contact me**! I'm here to help.
 
-📌 [Discord](https://discord.gg/Dak8Wy3qQt) | [Telegram](https://t.me./NikoIaiDev)
+📌 [Discord](https://discord.gg/Dak8Wy3qQt) | [Telegram](https://t.me./NikoIaiDev) | [Wiki](https://github.com/iNikolaiDev/NSC-TabCompleter/wiki)
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/GROUPS.png)
 
