@@ -6,7 +6,7 @@
 
 This **plugin** is a tool for **managing command tab completion**.
 
-If you have any issue contact me I will help you. (**My Discord: nikolai0803**, **My Telegram: @NikoIaiDev**)
+If you have any issue contact me I will help you. (My **[Discord](https://discord.gg/Dak8Wy3qQt)** and **[Telegram](https://t.me./NikoIaiDev)**)
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/GROUPS.png)
 
