@@ -4,13 +4,13 @@
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/PREVIEW.png)
 
-This plugin is a tool for managing command tab completion.
+This **plugin** is a tool for **managing command tab completion**.
 
 If you have any issue contact me I will help you. (**My Discord: nikolai0803**, **My Telegram: @NikoIaiDev**)
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/GROUPS.png)
 
-You can easily create an group and manage it by like below.
+You can easily **create** an group and **manage** it by like below.
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/HOW-ADD-GROUP.png)
 
