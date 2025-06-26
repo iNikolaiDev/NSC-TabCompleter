@@ -73,7 +73,7 @@ It also supports the **multiple** color feature, allowing you to do this using y
 `<#a800a8, #f51063, #ff8e44>♦ NSC TabCompleter ›</#Gradient>`
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/PERMISSIONS.png)
-Permissions allow you to make your own customizations.
+Permissions allow you to **achieve** your **exact desire**.
 
 | Permission | Description |
 | ------------- | ------------- |
