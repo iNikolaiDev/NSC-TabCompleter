@@ -1,124 +1,127 @@
-# NSC TabCompleter
+# NSC TabCompleter ✨
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/NSC-TABCOMPLETER.png)
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/PREVIEW.png)
 
-This **plugin** is a tool for **managing command tab completion**.
+This **plugin** is a powerful tool for **managing command tab completion** in your server.
 
-If you have any issue contact me I will help you. (My **[Discord](https://discord.gg/Dak8Wy3qQt)** and **[Telegram](https://t.me./NikoIaiDev)**)
+💬 If you encounter any issues, feel free to **contact me**! I'm here to help.
+
+📌 [Discord](https://discord.gg/Dak8Wy3qQt) | [Telegram](https://t.me./NikoIaiDev)
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/GROUPS.png)
 
-You can easily **create** an group and **manage** it by like below.
+You can easily **create** and **manage** groups to organize your tab completion settings. Here's how:
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/HOW-ADD-GROUP.png)
 
-* **newgroup**: You can choose any **name** you want for your group.
-* **mode**: You can choose between "**Blacklist**" and "**Whitelist**" mode to decide what the **group** should do.
-* **commands**: The **list of commands** that you want the group to **blacklist** or **whitelist** according to the mode.
-* **priority**: Group **action priority**, if you want two groups to have the same priority, set their numbers the same.
+*  **newgroup** 📋: Choose any **name** for your group.
+*  **mode** ⚙️: Select between **Blacklist** or **Whitelist** to define the group's behavior.
+*  **commands** 📜: Specify the **list of commands** to **blacklist** or **whitelist** based on the mode.
+*  **priority** 🔢: Set the group's **action priority**. For groups with equal priority, assign the same number.
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/FEATURES.png)
 
-* Grouping for better management.
-* Blacklist and Whitelist.
+* **Grouping** for streamlined management.
+* **Blacklist** and **Whitelist** modes.
 * Prioritization for groups.
-* Group merging.
-* Customize insfussient permission message.
-* Support html colors and & formats.
-* Bypass permissions for customize.
-* Multiple Gradients support.
-* Agruments customization.
+* **Group merging** for combined functionality.
+* **Customizable insufficient permission messages** 💬.
+* **Support for HTML colors** and **& formats**.
+* **Bypass permissions** for tailored control.
+* **Multiple Gradients support**.
+* **Arguments customization** for precise command handling.
   
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/HOWS-WORK.png)
 
-First of all, you need a **permission management plugin**, I suggest you **[LuckPerms](https://www.spigotmc.org/resources/luckperms.28140/)**. Using this unique plugin, you can easily **apply groups** to players like below.
+To get started, you'll need a **permission management plugin**. We recommend **[LuckPerms](https://www.spigotmc.org/resources/luckperms.28140/)** for seamless group application to players.
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/HOW-APPLY-GROUP.png)
 
-If you have **multiple** groups applied to the player, they will be **combined**.
+When **multiple groups** are applied to a player, they will be **combined** for a unified effect.
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/MERGED-GROUPS.png)
 
-For example, you have two groups applied to the player, which are the following commands:
+Suppose you have two groups applied to a player with the following **commands**:
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/GROUP1-COMMANDS.png)
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/GROUP2-COMMANDS.png)
 
-And your output is something similar as below.
+The output will reflect the combined rules, ensuring smooth tab completion.
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/MERGED-RESULT.png)
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/ARGUMENTS.png)
 
-Support for command arguments has been available since **version 2.3.0**, allowing for better customization.
+Since **version 2.3.0**, the plugin supports **command arguments** for enhanced customization. 🛠️
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/ARGUMENT-PREVIEW.png)
 
-You can **manage** the command arguments like below.
+**Manage arguments** like this:
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/HOW-ADD-ARGUMENT.png)
 
-**WARNING! You should be careful that if you plan to manage arguments in a blacklist group, it will be applied if you have multiple whitelisted arguments in another group.**
+⚠️ **WARNING**: Be cautious when managing arguments in a **blacklist group**. If multiple **whitelisted arguments** exist in another group, they may conflict.
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/GRADIENT.png)
 
-The plugin also **supports gradients**, which you can use for customization. Here's an example:
+🌈 The plugin supports **gradients** for vibrant customization. Example:
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/GRADIENT-PREVIEW.png)
 
-It also supports the **multiple** color feature, allowing you to do this using your favorite colors. Here's how to do it:
+You can also use **multiple color** formatting to style with your favorite colors.
 
 `<#a800a8, #f51063, #ff8e44>♦ NSC TabCompleter ›</#Gradient>`
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/PERMISSIONS.png)
-Permissions allow you to **achieve** your **exact desire**.
+🔐 Permissions allow you to achieve your **exact desired configuration**. Here's the full list:
 
 | Permission | Description |
 | ------------- | ------------- |
-| nsctab.reload | Reloads the plugin config file. |
-| nsctab.update.all | Update the players commands. |
-| nsctab.update.player | Update the player's commands. |
-| nsctab.help | See the plugin help. |
-| nsctab.changelog | See the plugin update changelog. |
-| nsctab.groups.information | Access to group's information. |
-| nsctab.group.‹group› | Applies the group to the player. |
-| nsctab.whitelist.command.‹command› | Applies command to the player as a whitelist. |
-| nsctab.blacklist.command.‹command› | Applies command to the player as a blacklist. |
-| nsctab.bypass.commands.execution | Apply bypass command execution for the player. |
-| nsctab.bypass.commands.tabcomplation | Apply bypass tab completion for the player. |
-| nsctab.include.commands.execution | Including player in command execution. |
-| nsctab.include.commands.tabcomplation | Including player in tab complation. |
+| nsctab.reload | Reloads the plugin config file. 🔄 |
+| nsctab.update.all | Updates all players commands. 🌍 |
+| nsctab.update.player | Updates a specific player's commands. 👤 |
+| nsctab.help | Displays the plugin help. ❓ |
+| nsctab.changelog | Shows the plugin update changelog. 📝 |
+| nsctab.groups.information | Access group information. 📊 |
+| nsctab.group.‹group› | Applies the specified group to the player. 🛡️ |
+| nsctab.whitelist.command.‹command› | Whitelists a command for the player. ✅ |
+| nsctab.blacklist.command.‹command› | Blacklists a command for the player. 🚫 |
+| nsctab.bypass.commands.execution | Bypasses command execution restrictions. 🔓 |
+| nsctab.bypass.commands.tabcomplation | Bypasses tab completion restrictions. 📑 |
+| nsctab.include.commands.execution | Includes the player in command execution. ➕ |
+| nsctab.include.commands.tabcomplation | Includes the player in tab completion. ➕ |
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/HOW-COMPILE.png)
 ### Requirements:
 - Java 23+ ([Download Link](https://www.oracle.com/fr/java/technologies/downloads/))
 - Gradle 8.13 ([Download Link](https://gradle.org/releases/))
 
-### Step 1:
-You must add your **Gradle** and **Java** path to system path ( Syntax: `<Your gradle or java folder path>\bin` )
+### Step 1: Configure Paths
+Add your **Gradle** and **Java** paths to your system environment variables:
 
-Gradle Example: D:\Programs\Gradle-8.13\bin
+( Syntax: `<Your gradle or java folder path>\bin` )
 
-Java Example: C:\Program Files\Java\jdk-23\bin
+* **Gradle Example**: `D:\Programs\Gradle-8.13\bin`
+
+* **Java Example**: `C:\Program Files\Java\jdk-23\bin`
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/HOW-ADD-PATH.png)
 
-### Step 2:
-You need to open a cmd terminal in the folder. Do the following:
-![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/STEP2-1.png)
+### Step 2: Build the Project
+1. Type `cmd` in the address bar and press Enter.
+2. Run the `Gradlew` command to prepare the project prerequisites.
+3. Run the `Gradlew build` command to compile project.
+4. The compiled result will appear in the **Output folder**. 🎉
 
-And type "Cmd" in the Bar:
+### 1.
+![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/STEP2-1.png)
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/STEP2-2.png)
 
-Then you will see a terminal where you need to enter the "**Gradlew**" command. This command will prepare the project required prerequisites.
-
+### 2.
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/STEP2-3.png)
 
-And finally compile with the "**Gradlew build**" command.
-
+### 3.
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/STEP2-4.png)
-
-You can see the compiled result in the Output folder.
