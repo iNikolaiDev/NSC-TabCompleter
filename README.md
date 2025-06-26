@@ -93,6 +93,12 @@ You can also use **multiple color** formatting to style with your favorite color
 | nsctab.include.commands.execution | Includes the player in command execution. ➕ |
 | nsctab.include.commands.tabcomplation | Includes the player in tab completion. ➕ |
 
+## Need Help? ❓
+
+Visit our **[Wiki](https://github.com/iNikolaiDev/NSC-TabCompleter/wiki)** for detailed documentation, or join our community on **[Discord](https://discord.gg/Dak8Wy3qQt)** for support and updates.
+
+Enjoy a smoother, more organized server experience with NSC TabCompleter! 🌟
+
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/HOW-COMPILE.png)
 ### Requirements:
 - Java 23+ ([Download Link](https://www.oracle.com/fr/java/technologies/downloads/))
