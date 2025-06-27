@@ -62,7 +62,7 @@ Since **version 2.3.0**, the plugin supports **command arguments** for enhanced 
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/HOW-ADD-ARGUMENT.png)
 
-⚠️ **WARNING**: Be cautious when managing arguments in a **blacklist group**. If multiple **whitelisted arguments** exist in another group, they may conflict.
+⚠️ **WARNING**: If you want to use **argument blacklisting**, **NOTE THAT** it will **only apply to arguments explicitly whitelisted in another group**, **NOT** to the default arguments **of the command**.
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/GRADIENT.png)
 
