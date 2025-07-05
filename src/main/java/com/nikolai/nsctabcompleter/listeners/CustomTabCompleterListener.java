@@ -55,7 +55,7 @@ public class CustomTabCompleterListener implements TabCompleter
         String whitelistPerm = "nsctab.whitelist.command." + command;
         String blacklistPerm = "nsctab.blacklist.command." + command;
         boolean isWhitelisted = player.hasPermission(whitelistPerm) && player.isPermissionSet(whitelistPerm);
-        boolean isBlacklisted = player.hasPermission(blacklistPerm);
+        boolean isBlacklisted = player.hasPermission(blacklistPerm)  && player.isPermissionSet(whitelistPerm);
 
         plugin.getConfigManager().logDebug("[NSC TabCompleter] Permission check for {0}: whitelist={1}, blacklist={2}",
                 command, isWhitelisted, isBlacklisted);

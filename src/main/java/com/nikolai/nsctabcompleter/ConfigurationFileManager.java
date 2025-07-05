@@ -267,7 +267,7 @@ public class ConfigurationFileManager
                 protectedCommands.add(cmd);
                 logDebug("[NSC TabCompleter] Player {0} has whitelist permission {1}, added command: {2}", player.getName(), whitelistPerm, cmd);
             }
-            if (player.hasPermission(blacklistPerm))
+            if (player.hasPermission(blacklistPerm) && player.isPermissionSet(whitelistPerm))
             {
                 blacklistCommands.add(cmd);
                 logDebug("[NSC TabCompleter] Player {0} has blacklist permission {1}, added command: {2}", player.getName(), blacklistPerm, cmd);

@@ -195,20 +195,15 @@ public class NSCTabCompleterCommand implements TabExecutor
                 sender.sendMessage("§5♦ §dError §5§l› §dYou don't have permission!");
                 return true;
             }
-            sender.sendMessage("§8――― §5•§d♦§5• §8――― §dv2.3.1 §8――― §5• §d« Change Log » §5• §8―――――――――― §5•§d♦§5• §8―――");
+            sender.sendMessage("§8――― §5•§d♦§5• §8――― §dv2.3.2 §8――― §5• §d« Change Log » §5• §8―――――――――― §5•§d♦§5• §8―――");
             sender.sendMessage(" ");
             sender.sendMessage("   §2•§a♦§2• §aWhat's New:");
             sender.sendMessage(" ");
 
-            sender.sendMessage(" §2♦ §aAdded Spigot API Support for Spigot platform.");
-            sender.sendMessage(" §2♦ §aPermission  §2‹ §ansctab.update.all §2›");
-            sender.sendMessage(" §2♦ §aPermission  §2‹ §ansctab.update.player §2›");
-            sender.sendMessage(" §2♦ §aPermission  §2‹ §ansctab.help §2›");
-            sender.sendMessage(" §2♦ §aPermission  §2‹ §ansctab.changelog §2›");
-            sender.sendMessage(" §2♦ §aPermission  §2‹ §ansctab.groups.information §2›");
+            sender.sendMessage(" §2♦ §aUpdate API for MC 1.21.7 support.");
             sender.sendMessage(" ");
-            sender.sendMessage(" §4♦ §cFixed command execution working issue when you op.");
-            sender.sendMessage(" §4♦ §cFixed message colorization issue.");
+            sender.sendMessage(" §4♦ §cFix update checker.");
+            sender.sendMessage(" §4♦ §cFix sub arguments not working when you were op.");
             sender.sendMessage(" ");
 
             sender.sendMessage("§8――― §5•§d♦§5• §8―――――――――― §5• §d« §8―――― ―――― ―――― §d» §5• §8―――――――――― §5•§d♦§5• §8―――");
