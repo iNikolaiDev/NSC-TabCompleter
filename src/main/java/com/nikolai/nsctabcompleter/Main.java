@@ -40,7 +40,7 @@ public class Main extends JavaPlugin
         Bukkit.getConsoleSender().sendMessage("§8----------------------------------------------");
         Bukkit.getConsoleSender().sendMessage(" ");
 
-        new UpdateChecker(this, "iNikolaiDev", "NSC-TabCompleter", "unknown").getVersion(version ->
+        new UpdateChecker(this, "repo-owner", "repo-name", "githubToken").getVersion(version ->
         {
             String currentVersion = getDescription().getVersion();
 
