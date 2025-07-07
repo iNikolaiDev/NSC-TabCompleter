@@ -13,6 +13,7 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
+          COMMIT_COUNT=$(echo '${{ toJson(github.event.commits) }}' | jq length)
           curl -H "Content-Type: application/json" \
           -X POST \
           -d "{
@@ -25,7 +26,7 @@ jobs:
                 \"url\": \"https://github.com/${{ github.actor }}\",
                 \"icon_url\": \"https://github.com/${{ github.actor }}.png\"
               },
-              \"title\": \"[${{ github.repository }}] ${{ toJson(github.event.commits) }} New Commits!\",
+              \"title\": \"[${{ github.repository }}] ${COMMIT_COUNT} New Commits!\",
               \"description\": \"${{ github.event.head_commit.message }} ${GITHUB_SHA::7} [here](https://github.com/${{ github.repository }}/commit/${{ github.sha }})\",
               \"url\": \"https://github.com/${{ github.repository }}/commit/${{ github.sha }}\",
               \"color\": 3447003,
