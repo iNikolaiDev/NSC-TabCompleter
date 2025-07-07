@@ -9,52 +9,32 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
-      - name: Send Discord Webhook with Full Commit List
+      - name: Send Discord Webhook
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
-          echo "Building commit list..."
-
-          # ساخت لیست کامیت‌ها
+          COMMIT_COUNT=$(echo '${{ toJson(github.event.commits) }}' | jq length)
           COMMITS=$(echo '${{ toJson(github.event.commits) }}' | jq -r '.[] | "- [\(.id[0:7])](\(.url)) - \(.message | gsub("\n"; " "))"')
-
-          # ساخت پیام نهایی Embed
-          JSON=$(jq -n \
-            --arg content "<@&ROLE_ID_HERE>\n**NEW COMMIT(S)**" \
-            --arg username "NSC Commit Bot" \
-            --arg avatar_url "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" \
-            --arg author_name "${{ github.actor }}" \
-            --arg author_url "https://github.com/${{ github.actor }}" \
-            --arg author_icon "https://github.com/${{ github.actor }}.png" \
-            --arg title "[${{ github.repository }}: ${{ github.sha::7 }}] ${{ github.event.head_commit.message }}" \
-            --arg url "https://github.com/${{ github.repository }}/commit/${{ github.sha }}" \
-            --arg description "$COMMITS" \
-            --argjson color 5814783 \
-            --arg footer "Branch: main" \
-            --arg timestamp "${{ github.event.head_commit.timestamp }}" \
-            '{
-              content: $content,
-              username: $username,
-              avatar_url: $avatar_url,
-              embeds: [{
-                author: {
-                  name: $author_name,
-                  url: $author_url,
-                  icon_url: $author_icon
-                },
-                title: $title,
-                url: $url,
-                description: $description,
-                color: $color,
-                footer: {
-                  text: $footer
-                },
-                timestamp: $timestamp
-              }]
-            }')
-
-          # ارسال پیام به دیسکورد
           curl -H "Content-Type: application/json" \
-               -X POST \
-               -d "$JSON" \
-               $DISCORD_WEBHOOK
+          -X POST \
+          -d "{
+            \"content\": \"<@&1391832379932545145>\",
+            \"username\": \"NSC Commit Bot\",
+            \"avatar_url\": \"https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png\",
+            \"embeds\": [{
+              \"author\": {
+                \"name\": \"${{ github.actor }}\",
+                \"url\": \"https://github.com/${{ github.actor }}\",
+                \"icon_url\": \"https://github.com/${{ github.actor }}.png\"
+              },
+              \"title\": \"• [${{ github.repository }}] ✨ • ${COMMIT_COUNT} New Commits!\",
+              \"description\": \"${$COMMITS}\",
+              \"url\": \"https://github.com/${{ github.repository }}\",
+              \"color\": 3447003,
+              \"footer\": {
+                \"text\": \"Pushed to branch: main\"
+              },
+              \"timestamp\": \"${{ github.event.head_commit.timestamp }}\"
+            }]
+          }" \
+          $DISCORD_WEBHOOK
