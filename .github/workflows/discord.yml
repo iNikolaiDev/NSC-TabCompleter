@@ -30,7 +30,7 @@ jobs:
               \"description\": \"View the commit [here](https://github.com/${{ github.repository }}/commit/${{ github.sha }})\",
               \"color\": 5814783,
               \"footer\": {
-                \"text\": \"Branch: main\"
+                \"text\": \"Branchs: main\"
               },
               \"timestamp\": \"${{ github.event.head_commit.timestamp }}\"
             }]
