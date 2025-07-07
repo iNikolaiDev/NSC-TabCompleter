@@ -27,7 +27,7 @@ jobs:
                 \"icon_url\": \"https://github.com/${{ github.actor }}.png\"
               },
               \"title\": \"• [${{ github.repository }}] ✨ • ${COMMIT_COUNT} New Commits!\",
-              \"description\": \"[${GITHUB_SHA::7}](https://github.com/${{ github.repository }}/commit/${{ github.sha }}) ${{ github.event.head_commit.message }}\",
+              \"description\": \"[${GITHUB_SHA::7}](https://github.com/${{ github.repository }}/commit/${{ github.sha }}) • ${{ github.event.head_commit.message }}\",
               \"url\": \"https://github.com/${{ github.repository }}\",
               \"color\": 3447003,
               \"footer\": {
