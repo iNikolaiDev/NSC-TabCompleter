@@ -28,7 +28,7 @@ jobs:
                 \"url\": \"https://github.com/${{ github.actor }}\",
                 \"icon_url\": \"https://github.com/${{ github.actor }}.png\"
               },
-              \"title\": \"♨ [${{ github.repository }}] ✨ ➜ ${COMMIT_COUNT} New Commits!\",
+              \"title\": \"📌 [${{ github.repository }}] ✨ ➜ ${COMMIT_COUNT} New Commits!\",
               \"description\": \"${COMMITS}\",
               \"url\": \"https://github.com/${{ github.repository }}\",
               \"color\": 3447003,
