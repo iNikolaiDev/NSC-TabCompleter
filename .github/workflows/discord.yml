@@ -27,7 +27,7 @@ jobs:
               },
               \"title\": \"[${{ github.repository }}: ${GITHUB_SHA::7}] ${{ github.event.head_commit.message }}\",
               \"url\": \"https://github.com/${{ github.repository }}/commit/${{ github.sha }}\",
-              \"description\": \"github.event.head_commit.description\",
+              \"description\": \"${{ github.sha }}\",
               \"color\": 3447003,
               \"footer\": {
                 \"text\": \"Pushed to branch: main\"
