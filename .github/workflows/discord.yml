@@ -1,0 +1,19 @@
+name: Notify Discord
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  discord:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send message to Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          curl -H "Content-Type: application/json" \
+               -X POST \
+               -d "{\"content\": null, \"embeds\": [{\"title\": \"🚀 New Push to NSC-TabCompleter!\", \"description\": \"Commit pushed to **main** by $GITHUB_ACTOR\", \"color\": 5814783}]}" \
+               $DISCORD_WEBHOOK
