@@ -16,6 +16,7 @@ jobs:
           curl -H "Content-Type: application/json" \
           -X POST \
           -d "{
+            \"content\": \"1391832379932545145\",
             \"username\": \"NSC Commit Bot\",
             \"avatar_url\": \"https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png\",
             \"embeds\": [{
