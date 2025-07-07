@@ -26,9 +26,9 @@ jobs:
                 \"url\": \"https://github.com/${{ github.actor }}\",
                 \"icon_url\": \"https://github.com/${{ github.actor }}.png\"
               },
-              \"title\": \"[${{ github.repository }}]  • ${COMMIT_COUNT} New Commits!\",
+              \"title\": \"[${{ github.repository }}] 🚀 • ${COMMIT_COUNT} New Commits!\",
               \"description\": \"${{ github.event.head_commit.message }} ${GITHUB_SHA::7} [here](https://github.com/${{ github.repository }}/commit/${{ github.sha }})\",
-              \"url\": \"https://github.com/${{ github.repository }}/commit/${{ github.sha }}\",
+              \"url\": \"https://github.com/${{ github.repository }}\",
               \"color\": 3447003,
               \"footer\": {
                 \"text\": \"Pushed to branch: main\"
