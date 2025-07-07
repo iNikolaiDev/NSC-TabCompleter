@@ -131,5 +131,3 @@ Add your **Gradle** and **Java** paths to your system environment variables:
 
 ### 3.
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/STEP2-4.png)
-
-Well done
