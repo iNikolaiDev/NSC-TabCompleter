@@ -122,7 +122,7 @@ Add your **Gradle** and **Java** paths to your system environment variables:
 4. The compiled result will appear in the **Output folder**. 🎉
 
 ### 1.
-![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/STEP2-1.png)
+![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/STEP2-1.png)test2
 
 ![](https://raw.githubusercontent.com/iNikolaiDev/pictures/refs/heads/main/STEP2-2.png)
 
