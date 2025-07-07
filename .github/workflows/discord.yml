@@ -14,27 +14,33 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
           COMMIT_COUNT=$(echo '${{ toJson(github.event.commits) }}' | jq length)
-          COMMITS=$(echo '${{ toJson(github.event.commits) }}' | jq -r '.[] | "- [\(.id[0:7])](\(.url)) - \(.message | gsub("\n"; " "))"')
-          curl -H "Content-Type: application/json" \
-          -X POST \
-          -d "{
-            \"content\": \"<@&1391832379932545145>\",
-            \"username\": \"NSC Commit Bot\",
-            \"avatar_url\": \"https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png\",
-            \"embeds\": [{
-              \"author\": {
-                \"name\": \"${{ github.actor }}\",
-                \"url\": \"https://github.com/${{ github.actor }}\",
-                \"icon_url\": \"https://github.com/${{ github.actor }}.png\"
+          COMMITS=$(echo '${{ toJson(github.event.commits) }}' | jq -r '.[] | "- [\(.id[0:7])](\(.url)) - \(.message | gsub("\n"; " "))"' | sed ':a;N;$!ba;s/\n/\\n/g')
+
+          JSON_PAYLOAD=$(cat <<EOF
+          {
+            "content": "<@&1391832379932545145>",
+            "username": "NSC Commit Bot",
+            "avatar_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+            "embeds": [{
+              "author": {
+                "name": "${{ github.actor }}",
+                "url": "https://github.com/${{ github.actor }}",
+                "icon_url": "https://github.com/${{ github.actor }}.png"
               },
-              \"title\": \"• [${{ github.repository }}] ✨ • ${COMMIT_COUNT} New Commits!\",
-              \"description\": \"${COMMITS}\",
-              \"url\": \"https://github.com/${{ github.repository }}\",
-              \"color\": 3447003,
-              \"footer\": {
-                \"text\": \"Pushed to branch: main\"
+              "title": "• [${{ github.repository }}] ✨ • ${COMMIT_COUNT} New Commit${COMMIT_COUNT > 1 && "s" || ""}!",
+              "description": "${COMMITS}",
+              "url": "https://github.com/${{ github.repository }}",
+              "color": 3447003,
+              "footer": {
+                "text": "Pushed to branch: main"
               },
-              \"timestamp\": \"${{ github.event.head_commit.timestamp }}\"
+              "timestamp": "${{ github.event.head_commit.timestamp }}"
             }]
-          }" \
-          $DISCORD_WEBHOOK
+          }
+EOF
+          )
+
+          curl -H "Content-Type: application/json" \
+               -X POST \
+               -d "$JSON_PAYLOAD" \
+               $DISCORD_WEBHOOK
