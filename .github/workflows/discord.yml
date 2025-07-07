@@ -1,4 +1,4 @@
-name: Notify Discord
+name: Notify Discord of Push
 
 on:
   push:
@@ -6,14 +6,32 @@ on:
       - main
 
 jobs:
-  discord:
+  notify:
     runs-on: ubuntu-latest
     steps:
-      - name: Send message to Discord
+      - name: Send Discord Webhook
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
           curl -H "Content-Type: application/json" \
-               -X POST \
-               -d "{\"content\": null, \"embeds\": [{\"title\": \"🚀 New Push to NSC-TabCompleter!\", \"description\": \"Commit pushed to **main** by $GITHUB_ACTOR\", \"color\": 5814783}]}" \
-               $DISCORD_WEBHOOK
+          -X POST \
+          -d "{
+            \"username\": \"NSC Commit Bot\",
+            \"avatar_url\": \"https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png\",
+            \"embeds\": [{
+              \"author\": {
+                \"name\": \"${{ github.actor }}\",
+                \"url\": \"https://github.com/${{ github.actor }}\",
+                \"icon_url\": \"https://github.com/${{ github.actor }}.png\"
+              },
+              \"title\": \"🧠 New Push to [${{ github.repository }}](https://github.com/${{ github.repository }})\",
+              \"description\": \"`${{ github.event.head_commit.message }}`\",
+              \"url\": \"https://github.com/${{ github.repository }}/commit/${{ github.sha }}\",
+              \"color\": 3447003,
+              \"footer\": {
+                \"text\": \"Pushed to branch: main\"
+              },
+              \"timestamp\": \"${{ github.event.head_commit.timestamp }}\"
+            }]
+          }" \
+          $DISCORD_WEBHOOK
