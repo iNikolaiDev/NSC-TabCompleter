@@ -1,5 +1,5 @@
 name: NSCTabCompleter
-version: 2.3.3
+version: 3.0.0-SNAPSHOT
 author: Nikolai
 main: com.nikolai.nsctabcompleter.Main
 api-version: 1.13
