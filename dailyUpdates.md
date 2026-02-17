@@ -1,94 +1,153 @@
+```
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║    ███╗   ██╗███████╗ ██████╗                            ║
+║    ████╗  ██║██╔════╝██╔════╝                            ║
+║    ██╔██╗ ██║███████╗██║                                 ║
+║    ██║╚██╗██║╚════██║██║                                 ║
+║    ██║ ╚████║███████║╚██████╗                            ║
+║    ╚═╝  ╚═══╝╚══════╝ ╚═════╝  TabCompleter             ║
+║                                                          ║
+║               D E V   J O U R N A L                     ║
+║                    2024 – 2026                           ║
+╚══════════════════════════════════════════════════════════╝
+```
 
-**─═─══─═─══─═─═─══─═─══─═─**
+---
 
-# · ​N​​ѕ​​🇨​ T​​αв​​Cσ​​🇲​​🇵​​🇱​​🇪т​​🇪​​​я​ 2024 - 2026 ·
+## 📋 Template
 
-**─═─══─═─══─═─═─══─═─══─═─**
+```
+┌─────────────────────────────────────────────────────────┐
+│  📅  Day YYYY.DD.MM  →  Dev Day #X                      │
+│  🔖  Branch: [version]  |  Base: [base-version]         │
+└─────────────────────────────────────────────────────────┘
 
-# ─═─══─ Day xxxx.xx.x ─══─═─ ➜ Day x (3.0.0-beta.x , 2.3.2)
+  ░░ CARRY-OVER FROM YESTERDAY ░░░░░░░░░░░░░░░░░░░░░░░░░░░
+  ┆
+  ┆  • [ placeholder ]
+  ┆
+  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
- # [─═─══─═─══─═─══─═─]
+  ╔═══════════════════════════════════════════════════════╗
+  ║  🆕  ADDED                                           ║
+  ╠═══════════════════════════════════════════════════════╣
+  ║  + [ feature / system added ]                        ║
+  ╚═══════════════════════════════════════════════════════╝
 
- # **· Progress since yesterday » ·**
+  ╔═══════════════════════════════════════════════════════╗
+  ║  🔧  FIXED                                           ║
+  ╠═══════════════════════════════════════════════════════╣
+  ║  ✗ [ bug fixed ]                                     ║
+  ╚═══════════════════════════════════════════════════════╝
 
- # **· - x ·**
+  ╔═══════════════════════════════════════════════════════╗
+  ║  ♻️  CHANGED                                          ║
+  ╠═══════════════════════════════════════════════════════╣
+  ║  ~ [ what changed ]                                  ║
+  ║    ↳ detail                                          ║
+  ║    ↳ detail                                          ║
+  ╚═══════════════════════════════════════════════════════╝
 
- # [─═─══─═─══─═─══─═─]
+  ░░ TOMORROW'S GOALS ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+  ┆
+  ┆  ☐ [ task ]
+  ┆
+  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+```
 
- # **· Today's developments » ·**
+---
+---
 
- # **· `WHATS NEW` ·**
+## 📦 GitHub Push Checklist
 
- # **· -  [ADDED] x ·**
+> Run this before every `git push` to main / release branch.
 
- # **· `WHATS CHANGED` ·**
+```
+┌──────────────────────────────────────────────────────────┐
+│  🚀  PRE-PUSH CHECKLIST                                  │
+├──────────────────────────────────────────────────────────┤
+│  ☐  Update API version in build.gradle                   │
+│  ☐  Bump version string (build.gradle + plugin.yml)      │
+│  ☐  Test in-game on target MC version                    │
+│  ☐  Update changelog entry in NSCTabCompleterCommand     │
+│  ☐  Clean OutPut/ folder, rebuild shadow jar             │
+│  ☐  Tag release on GitHub  (vX.X.X)                      │
+└──────────────────────────────────────────────────────────┘
+```
 
- # **· -  [FIXED] x ·**
+---
+---
 
- # **· -  < [CHANGED] x ·**
- # **·    -  x ·**
- # **·    -  x ·**
- # **·    -  x ·**
- # **·    -  x > ·**
+## 🗓️ Dev Log
 
- # **· -  [CHANGED] x ·**
- # **· -  [CHANGED] x ·**
+---
 
- # [─═─══─═─══─═─══─═─]
+### 〔 Day 2026.30.1 〕→ Dev Day #1
 
- # **· Things that need to be done tomorrow » ·**
+```
+┌─────────────────────────────────────────────────────────┐
+│  📅  2026.30.1  →  Dev Day #1                           │
+│  🔖  3.0.0-beta.1  |  Base: 2.3.2                       │
+└─────────────────────────────────────────────────────────┘
+```
 
- # **· -  Complete statistics ➜ groups list system ·**
+**░░ CARRY-OVER FROM YESTERDAY ░░**
 
- # [─═─══─═─══─═─══─═─]
+- *(first entry — nothing carried over)*
 
-# ─═─══─═─══─═══─═══─══─═─══─═─
+**🆕 ADDED**
 
-# ─═─══─ Day 2026.30.1 ─══─═─ ➜ Day 1 (3.0.0-beta.1 , 2.3.2)
+- *(nothing yet — placeholder)*
 
- # [─═─══─═─══─═─══─═─]
+**🔧 FIXED**
 
- # **· Progress since yesterday » ·**
+- *(nothing yet — placeholder)*
 
- # **· - x ·**
+**♻️ CHANGED**
 
- # [─═─══─═─══─═─══─═─]
+- *(nothing yet — placeholder)*
 
- # **· Today's developments » ·**
+**☐ TOMORROW'S GOALS**
 
- # **· `WHATS NEW` ·**
+- Complete statistics → groups list system
 
- # **· -  [ADDED] x ·**
+---
 
- # **· `WHATS CHANGED` ·**
+### 〔 Day xxxx.xx.x 〕→ Dev Day #X  *(template copy)*
 
- # **· -  [FIXED] x ·**
+```
+┌─────────────────────────────────────────────────────────┐
+│  📅  xxxx.xx.x  →  Dev Day #X                          │
+│  🔖  [version]  |  Base: [base-version]                 │
+└─────────────────────────────────────────────────────────┘
+```
 
- # **· -  < [CHANGED] x ·**
- # **·    -  x ·**
- # **·    -  x ·**
- # **·    -  x ·**
- # **·    -  x > ·**
+**░░ CARRY-OVER FROM YESTERDAY ░░**
 
- # **· -  [CHANGED] x ·**
- # **· -  [CHANGED] x ·**
+- *(placeholder)*
 
- # [─═─══─═─══─═─══─═─]
+**🆕 ADDED**
 
- # **· Things that need to be done tomorrow » ·**
+- *(placeholder)*
 
- # **· -  Complete statistics ➜ groups list system ·**
+**🔧 FIXED**
 
- # [─═─══─═─══─═─══─═─]
+- *(placeholder)*
 
-# ─═─══─═─══─═══─═══─══─═─══─═─
+**♻️ CHANGED**
 
- #       **· `UPDATING TO GITHUB` ·**
- # [─═─══─═─═WHAT-DO-YOU-NEED-TO-DO═─═─══─═─]
+- *(placeholder)*
 
- # 1. Update API to 1.21.11-R0.1-SNAPSHOT
- # 2. Change Version to 3.0.0
+**☐ TOMORROW'S GOALS**
 
- # Done.
+- *(placeholder)*
 
-  # [─═─══─═─═─═──═──═────═──═──═──═─═─═─══─═─]
+---
+
+```
+╔══════════════════════════════════════════════════════════╗
+║         Made by Nikolai  ·  NSC TabCompleter             ║
+║                   2024 – 2026  ♦                         ║
+╚══════════════════════════════════════════════════════════╝
+```
