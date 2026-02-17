@@ -9,6 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class Main extends JavaPlugin
 {
     public static Main plugin;
+    public boolean availableUpdate;
     public ConfigurationFileManager configManager;
 
     @Override
@@ -47,6 +48,11 @@ public class Main extends JavaPlugin
         return configManager;
     }
 
+    public boolean isAvailableUpdate()
+    {
+        return availableUpdate;
+    }
+
     // ─────────────────────────────────────────────
 
     private void printStartupBanner()
@@ -83,6 +89,8 @@ public class Main extends JavaPlugin
                 Bukkit.getConsoleSender().sendMessage(
                     "§8[NSC TabCompleter]: §dDownload: https://github.com/Nikolai/NSCTabCompleter/releases/latest"
                 );
+
+                availableUpdate = true;
             }
             else
             {

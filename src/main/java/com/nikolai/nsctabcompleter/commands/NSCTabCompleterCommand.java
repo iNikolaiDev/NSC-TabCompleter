@@ -125,6 +125,12 @@ public class NSCTabCompleterCommand implements TabExecutor
             TextComponent update    = clickable("§d[UPDATE]",    "/nsctabcompleter update all", "Click to update all players.");
             TextComponent changelog = clickable("§e[CHANGELOG]", "/nsctabcompleter changelog",  "Click for changelog.");
 
+            TextComponent updateLink = new TextComponent("§4[DOWNLOAD LINK]");
+            TextComponent outdatedMessage = new TextComponent("§7[§4✦§7] §cYou are using outdated version");
+
+            updateLink.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://www.spigotmc.org/threads/nsc-tabcompleter.685108/"));
+            updateLink.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text("Download our latest version")));
+
             sender.sendMessage(BAR);
             sender.sendMessage(" ");
             sender.sendMessage("                   " + Colorization.applyColorization("<#a800a8, #f51063, #ff8e44>NSC TabCompleter</#Gradient>"));
@@ -133,6 +139,12 @@ public class NSCTabCompleterCommand implements TabExecutor
             player.spigot().sendMessage(new BaseComponent[]{ first, help, space, reload, space, update, space, changelog });
 
             sender.sendMessage(" ");
+
+            if (plugin.isAvailableUpdate())
+            {
+                    sender.spigot().sendMessage(new BaseComponent[] { space, outdatedMessage, space, updateLink });
+                    sender.sendMessage(" ");
+            }
             sender.sendMessage(BAR);
         }
         else
