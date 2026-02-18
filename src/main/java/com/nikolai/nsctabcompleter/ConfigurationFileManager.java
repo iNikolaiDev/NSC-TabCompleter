@@ -57,6 +57,11 @@ public class ConfigurationFileManager
         loadConfigurationFile();
     }
 
+    public FileConfiguration getConfig()
+    {
+        return config;
+    }
+
     // ─────────────────────────────────────────────
     //  Config I/O
     // ─────────────────────────────────────────────
