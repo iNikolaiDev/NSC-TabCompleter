@@ -14,7 +14,6 @@ import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -81,7 +80,6 @@ public class NSCTabCompleterCommand implements TabExecutor
 
     // ─── Command Execution ─────────────────────────────────────────────────────
 
-    @SuppressWarnings("deprecation")
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
     {
@@ -301,7 +299,6 @@ public class NSCTabCompleterCommand implements TabExecutor
 
     // ─── Utility ───────────────────────────────────────────────────────────────
 
-    @SuppressWarnings("deprecation")
     private TextComponent clickable(String text, String command, String hoverText)
     {
         TextComponent comp = new TextComponent(text);

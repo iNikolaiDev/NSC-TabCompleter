@@ -13,6 +13,7 @@ import java.util.List;
 
 public class CommandBlockerListener implements Listener
 {
+    @SuppressWarnings("unused")
     private final Main plugin;
     private final ConfigurationFileManager configManager;
 
