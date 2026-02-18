@@ -155,7 +155,7 @@ public class NSCTabCompleterCommand implements TabExecutor
 
     private void sendVersion(CommandSender sender)
     {
-        sender.sendMessage(PREFIX + "Current version: §5v" + Main.plugin.getDescription().getVersion());
+        sender.sendMessage(PREFIX + "Current version: §5v" + Main.plugin.getPluginMeta().getVersion());
     }
 
     private void handleReload(CommandSender sender)
