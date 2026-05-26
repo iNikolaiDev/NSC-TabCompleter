@@ -78,7 +78,7 @@ public class Main extends JavaPlugin
     {
         new UpdateChecker(this, "repo-owner", "repo-name", "githubToken").getVersion(latestVersion ->
         {
-            String current = getPluginMeta().getVersion();
+            String current = getDescription().getVersion();
 
             if (!current.equals(latestVersion))
             {

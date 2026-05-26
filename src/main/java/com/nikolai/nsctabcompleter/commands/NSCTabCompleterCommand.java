@@ -155,7 +155,7 @@ public class NSCTabCompleterCommand implements TabExecutor
 
     private void sendVersion(CommandSender sender)
     {
-        sender.sendMessage(PREFIX + "Current version: §5v" + Main.plugin.getPluginMeta().getVersion());
+        sender.sendMessage(PREFIX + "Current version: §5v" + Main.plugin.getDescription().getVersion());
     }
 
     private void handleReload(CommandSender sender)
@@ -209,7 +209,6 @@ public class NSCTabCompleterCommand implements TabExecutor
         sender.sendMessage("  §2•§a♦§2• §aWhat's New:");
         sender.sendMessage(" ");
         sender.sendMessage(" §2♦ §aRefactored ConfigurationFileManager for 3.0.0.");
-        sender.sendMessage(" §2♦ §aUpdated API to 1.21.11 support.");
         sender.sendMessage(" ");
         sender.sendMessage(" §4♦ §cFixed blacklist permission check (was checking wrong perm node).");
         sender.sendMessage(" §4♦ §cFixed isCommandAllowed logic duplication across classes.");
