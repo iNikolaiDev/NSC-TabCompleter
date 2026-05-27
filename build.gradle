@@ -16,7 +16,6 @@ repositories
         name = "spigotmc"
         url = uri("https://hub.spigotmc.org/nexus/content/repositories/snapshots")
     }
-
 }
 
 dependencies
@@ -37,13 +36,22 @@ tasks.withType(JavaCompile)
     options.encoding = 'UTF-8'
 }
 
-artifacts
-{
-    archives shadowJar
-}
-
 shadowJar
 {
     archiveFileName = "${rootProject.name}-${version}.jar"
     destinationDirectory.set(new File("OutPut"))
+}
+
+tasks.register('deployPlugin', Copy)
+{
+    dependsOn shadowJar
+
+    from shadowJar.archiveFile
+
+    into 'E:/Developing/Minecraft Servers/26.1.2/plugins'
+}
+
+build
+{
+    finalizedBy deployPlugin
 }
