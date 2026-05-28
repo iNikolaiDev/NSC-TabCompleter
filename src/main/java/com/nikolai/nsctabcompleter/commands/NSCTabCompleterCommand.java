@@ -22,9 +22,11 @@ public class NSCTabCompleterCommand implements TabExecutor
     private final Main plugin;
 
     // ─── Message helpers (clean colour codes) ─────────────────────────────────
-    private static final String BAR     = "§8§m----------------------------------------------";
+    private static final String TOP  = "§8§l╭§8§m                                                      §8§l╮";
+    private static final String BOTTOM  = "§8§l╰§8§m                                                      §8§l╯";
+
     private static final String PREFIX  = " §5♦ §dNSC §5§l› §d";
-    private static final String ERR     = " §5♦ §dError §5§l› §d";
+    private static final String ERROR     = " §5♦ §dError §5§l› §d";
 
     public NSCTabCompleterCommand(Main plugin)
     {
@@ -101,9 +103,9 @@ public class NSCTabCompleterCommand implements TabExecutor
                 if (args.length >= 2 && args[1].equalsIgnoreCase("information"))
                     handleGroupInfo(sender, args);
                 else
-                    sender.sendMessage(ERR + "Usage: /nsctabcompleter group information <group>");
+                    sender.sendMessage(ERROR + "Usage: /nsctabcompleter group information <group>");
             }
-            default -> sender.sendMessage(ERR + "Unknown sub-command. Use §5/nsctabcompleter help§d.");
+            default -> sender.sendMessage(ERROR + "Unknown sub-command. Use §5/nsctabcompleter help§d.");
         }
 
         return true;
@@ -129,7 +131,7 @@ public class NSCTabCompleterCommand implements TabExecutor
             updateLink.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://www.spigotmc.org/threads/nsc-tabcompleter.685108/"));
             updateLink.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text("Download our latest version")));
 
-            sender.sendMessage(BAR);
+            sender.sendMessage(TOP);
             sender.sendMessage(" ");
             sender.sendMessage("                   " + Colorization.applyColorization("<#a800a8, #f51063, #ff8e44>NSC TabCompleter</#Gradient>"));
             sender.sendMessage("§7            V E R S I O N" + " §8♦ §7" + Main.plugin.getDescription().getVersion());
@@ -143,13 +145,13 @@ public class NSCTabCompleterCommand implements TabExecutor
                     sender.spigot().sendMessage(new BaseComponent[] { space, outdatedMessage, space, updateLink });
                     sender.sendMessage(" ");
             }
-            sender.sendMessage(BAR);
+            sender.sendMessage(BOTTOM);
         }
         else
         {
-            sender.sendMessage(BAR);
+            sender.sendMessage(TOP);
             sender.sendMessage(" §7[§d✦§7] §5NSC TabCompleter §dv" + Main.plugin.getDescription().getVersion() + " §7| §5Made by §dNikolai");
-            sender.sendMessage(BAR);
+            sender.sendMessage(BOTTOM);
         }
     }
 
@@ -162,7 +164,7 @@ public class NSCTabCompleterCommand implements TabExecutor
     {
         if (!sender.hasPermission("nsctab.reload"))
         {
-            sender.sendMessage(ERR + "You don't have permission!");
+            sender.sendMessage(ERROR + "You don't have permission!");
             return;
         }
 
@@ -175,7 +177,7 @@ public class NSCTabCompleterCommand implements TabExecutor
     {
         if (!sender.hasPermission("nsctab.help"))
         {
-            sender.sendMessage(ERR + "You don't have permission!");
+            sender.sendMessage(ERROR + "You don't have permission!");
             return;
         }
 
@@ -200,7 +202,7 @@ public class NSCTabCompleterCommand implements TabExecutor
     {
         if (!sender.hasPermission("nsctab.changelog"))
         {
-            sender.sendMessage(ERR + "You don't have permission!");
+            sender.sendMessage(ERROR + "You don't have permission!");
             return;
         }
 
@@ -220,13 +222,13 @@ public class NSCTabCompleterCommand implements TabExecutor
     {
         if (!sender.hasPermission("nsctab.update.player") && !sender.hasPermission("nsctab.update.all"))
         {
-            sender.sendMessage(ERR + "You don't have permission!");
+            sender.sendMessage(ERROR + "You don't have permission!");
             return;
         }
 
         if (args.length < 2)
         {
-            sender.sendMessage(ERR + "Usage: /nsctabcompleter update <all|player> [name]");
+            sender.sendMessage(ERROR + "Usage: /nsctabcompleter update <all|player> [name]");
             return;
         }
 
@@ -239,14 +241,14 @@ public class NSCTabCompleterCommand implements TabExecutor
         {
             if (args.length < 3)
             {
-                sender.sendMessage(ERR + "You must specify a player name.");
+                sender.sendMessage(ERROR + "You must specify a player name.");
                 return;
             }
 
             Player target = Bukkit.getPlayer(args[2]);
             if (target == null)
             {
-                sender.sendMessage(ERR + "Player not found or not online.");
+                sender.sendMessage(ERROR + "Player not found or not online.");
                 return;
             }
 
@@ -255,7 +257,7 @@ public class NSCTabCompleterCommand implements TabExecutor
         }
         else
         {
-            sender.sendMessage(ERR + "Unknown option. Use §5all§d or §5player§d.");
+            sender.sendMessage(ERROR + "Unknown option. Use §5all§d or §5player§d.");
         }
     }
 
@@ -263,13 +265,13 @@ public class NSCTabCompleterCommand implements TabExecutor
     {
         if (!sender.hasPermission("nsctab.groups.information"))
         {
-            sender.sendMessage(ERR + "You don't have permission!");
+            sender.sendMessage(ERROR + "You don't have permission!");
             return;
         }
 
         if (args.length < 3 || args[2].isBlank())
         {
-            sender.sendMessage(ERR + "Usage: /nsctabcompleter group information <group>");
+            sender.sendMessage(ERROR + "Usage: /nsctabcompleter group information <group>");
             return;
         }
 
@@ -277,7 +279,7 @@ public class NSCTabCompleterCommand implements TabExecutor
 
         if (!plugin.getConfigManager().isGroupExist(groupName))
         {
-            sender.sendMessage(ERR + "Group '§5" + groupName + "§d' does not exist.");
+            sender.sendMessage(ERROR + "Group '§5" + groupName + "§d' does not exist.");
             return;
         }
 
