@@ -30,6 +30,11 @@ public class NSCTabCompleterCommand implements TabExecutor
     private static final String ERROR  = " §5§l◈ §4§lError §8§l» §c";
     private static final String BULL   = " §5◆ §7";
 
+    // Click actions
+    private static final ClickEvent.Action RUN = ClickEvent.Action.RUN_COMMAND;
+    private static final ClickEvent.Action SUGGEST = ClickEvent.Action.SUGGEST_COMMAND;
+    private static final ClickEvent.Action OPEN = ClickEvent.Action.OPEN_URL;
+
     public NSCTabCompleterCommand(Main plugin)
     {
         this.plugin = plugin;
@@ -115,46 +120,49 @@ public class NSCTabCompleterCommand implements TabExecutor
 
     // ─── Sub-command Handlers ──────────────────────────────────────────────────
 
-    @SuppressWarnings("deprecation")
     private void sendOverview(CommandSender sender)
     {
-        if (sender instanceof Player player)
-        {
-            TextComponent first     = new TextComponent(" §7➜ ");
-            TextComponent space     = new TextComponent(" ");
-            TextComponent help      = clickable(Colorization.applyColorization("§6[HELP]"),      "/nsctabcompleter help",       "Click for help.");
-            TextComponent reload    = clickable("§a[RELOAD]",    "/nsctabcompleter reload",     "Click to reload config.");
-            TextComponent update    = clickable("§d[UPDATE]",    "/nsctabcompleter update all", "Click to update all players.");
-            TextComponent changelog = clickable("§e[CHANGELOG]", "/nsctabcompleter changelog",  "Click for changelog.");
-
-            TextComponent updateLink = new TextComponent("§4[DOWNLOAD LINK]");
-            TextComponent outdatedMessage = new TextComponent("§7[§4✦§7] §cYou are using outdated version");
-
-            updateLink.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://www.spigotmc.org/threads/nsc-tabcompleter.685108/"));
-            updateLink.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text("Download our latest version")));
-
-            sender.sendMessage(TOP);
-            sender.sendMessage(" ");
-            sender.sendMessage("                   " + Colorization.applyColorization("<#a800a8, #f51063, #ff8e44>NSC TabCompleter</#Gradient>"));
-            sender.sendMessage("§7            V E R S I O N" + " §8♦ §7" + Main.plugin.getDescription().getVersion());
-            sender.sendMessage(" ");
-            player.spigot().sendMessage(new BaseComponent[]{ first, help, space, reload, space, update, space, changelog });
-
-            sender.sendMessage(" ");
-
-            if (plugin.isAvailableUpdate())
-            {
-                    sender.spigot().sendMessage(new BaseComponent[] { space, outdatedMessage, space, updateLink });
-                    sender.sendMessage(" ");
-            }
-            sender.sendMessage(BOTTOM);
-        }
-        else
+        if (!(sender instanceof Player player))
         {
             sender.sendMessage(TOP);
             sender.sendMessage(" §7[§d✦§7] §5NSC TabCompleter §dv" + Main.plugin.getDescription().getVersion() + " §7| §5Made by §dNikolai");
             sender.sendMessage(BOTTOM);
+            return;
         }
+        sender.sendMessage(TOP);
+        sender.sendMessage(" ");
+        sender.sendMessage("                   " + Colorization.applyColorization("<#a800a8, #f51063, #ff8e44>NSC TabCompleter</#Gradient>"));
+        sender.sendMessage("§7            V E R S I O N" + " §8♦ §7" + Main.plugin.getDescription().getVersion());
+        sender.sendMessage(" ");
+
+        player.spigot().sendMessage(buildRow(
+            plainText(" §7➜ "),
+            clickButton("§6[HELP]", "§6Command reference", "/nsctabcompleter help", RUN),
+            plainText(" "),
+            clickButton("§3[MANAGE]", "§3Management tools", "/nsctabcompleter manage", RUN),
+            plainText(" "),
+            clickButton("§a[RELOAD]", "§aReload config from disk", "/nsctabcompleter reload", RUN),
+            plainText(" "),
+            clickButton("§d[UPDATE]", "§dRefresh all players", "/nsctabcompleter update all", RUN),
+            plainText(" "),
+            clickButton("§e[CHANGELOG]", "§eWhat's new", "/nsctabcompleter changelog", RUN),
+            plainText(" ")
+        ));
+
+        if (plugin.isAvailableUpdate())
+        {
+            TextComponent updateLink = new TextComponent("§4[DOWNLOAD LINK]");
+            TextComponent outdatedMessage = new TextComponent(" §7[§4✦§7] §cYou are using outdated version ");
+
+            updateLink.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://www.spigotmc.org/threads/nsc-tabcompleter.685108/"));
+            updateLink.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text("§4Download our latest version")));
+
+            sender.sendMessage(" ");
+            sender.spigot().sendMessage(new BaseComponent[] { outdatedMessage, updateLink });
+        }
+
+        sender.sendMessage(" ");
+        sender.sendMessage(BOTTOM);
     }
 
     private void sendVersion(CommandSender sender)
@@ -302,11 +310,24 @@ public class NSCTabCompleterCommand implements TabExecutor
 
     // ─── Utility ───────────────────────────────────────────────────────────────
 
-    private TextComponent clickable(String text, String command, String hoverText)
+    // Creates a TextComponent with no interactivity.
+    private TextComponent plainText(String text)
     {
-        TextComponent comp = new TextComponent(text);
-        comp.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, command));
-        comp.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(hoverText)));
-        return comp;
+        return new TextComponent(text);
+    }
+
+    // Creates a clickable button with a hover tooltip.
+    private TextComponent clickButton(String label, String hoverText, String command, ClickEvent.Action action)
+    {
+        TextComponent component = new TextComponent(label);
+        component.setClickEvent(new ClickEvent(action, command));
+        component.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(hoverText)));
+        return component;
+    }
+
+    // Assembles multiple BaseComponents into a single array for spigot().sendMessage().
+    private BaseComponent[] buildRow(BaseComponent... parts)
+    {
+        return parts;
     }
 }
