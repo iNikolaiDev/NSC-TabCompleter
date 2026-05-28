@@ -21,12 +21,14 @@ public class NSCTabCompleterCommand implements TabExecutor
 {
     private final Main plugin;
 
-    // ─── Message helpers (clean colour codes) ─────────────────────────────────
+    // Bars
     private static final String TOP  = "§8§l╭§8§m                                                      §8§l╮";
     private static final String BOTTOM  = "§8§l╰§8§m                                                      §8§l╯";
 
-    private static final String PREFIX  = " §5♦ §dNSC §5§l› §d";
-    private static final String ERROR     = " §5♦ §dError §5§l› §d";
+    // Prefix / feedback
+    private static final String PREFIX = " §5§l◈ §dNSC §8§l» §d";
+    private static final String ERROR  = " §5§l◈ §4§lError §8§l» §c";
+    private static final String BULL   = " §5◆ §7";
 
     public NSCTabCompleterCommand(Main plugin)
     {
