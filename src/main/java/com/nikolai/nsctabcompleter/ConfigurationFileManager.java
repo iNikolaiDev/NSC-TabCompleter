@@ -395,11 +395,12 @@ public class ConfigurationFileManager
     //  Settings Accessors  (cached-read helpers)
     // ─────────────────────────────────────────────
 
-    public boolean isTabCompletionEnabled()  { return getSetting("tab-complation",         true);  }
-    public boolean isBlockExecutionEnabled() { return getSetting("block-execution",         true);  }
-    public boolean isOpBypassEnabled()       { return getSetting("op-bypass",               false); }
-    public boolean isPrioritizationEnabled() { return getSetting("prioritization-enabled",  true);  }
-    public boolean isDebugEnabled()          { return getSetting("debug",                   false); }
+    public boolean isTabCompletionEnabled()   { return getSetting("tab-complation",         true);  }
+    public boolean isBlockExecutionEnabled()  { return getSetting("block-execution",         true);  }
+    public boolean isOpBypassEnabled()        { return getSetting("op-bypass",               false); }
+    public boolean isPrioritizationEnabled()  { return getSetting("prioritization-enabled",  true);  }
+    public boolean isDebugEnabled()           { return getSetting("debug",                   false); }
+    public boolean isQuickStatisticsEnabled() { return getSetting("quick-statistics", true); }
 
     public String insufficientPermissionMessage()
     {

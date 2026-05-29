@@ -160,6 +160,19 @@ public class NSCTabCompleterCommand implements TabExecutor
             sender.sendMessage(" ");
             sender.spigot().sendMessage(new BaseComponent[] { outdatedMessage, updateLink });
         }
+        
+        var configManager = plugin.getConfigManager();
+
+        if (configManager.isQuickStatisticsEnabled())
+        {
+            sender.sendMessage(" ");
+
+            int totalGroups   = configManager.getCurrentGroups().size();
+            int totalCommands = configManager.getCurrentGroups().values().stream().mapToInt(g -> g.getCommands().size()).sum();
+            int onlineUsers = Bukkit.getOnlinePlayers().size();
+
+            sender.sendMessage(" §7♦ Groups: §d" + totalGroups + " §7§l◈ §7Commands: §d" + totalCommands + " §7§l◈ §7Online: §d" + onlineUsers);    
+        }
 
         sender.sendMessage(" ");
         sender.sendMessage(BOTTOM);
