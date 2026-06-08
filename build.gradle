@@ -48,7 +48,7 @@ tasks.register('deployPlugin', Copy)
 
     from shadowJar.archiveFile
 
-    into 'E:/Developing/Minecraft Servers/26.1.2/plugins'
+    into 'E:/Developing/Minecraft Servers/1.21.11/plugins'
 }
 
 build
