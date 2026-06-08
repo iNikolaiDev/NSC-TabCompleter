@@ -24,34 +24,44 @@ public class TabCompleteListener implements Listener
     {
         Player player = event.getPlayer();
 
-        boolean isOp = player.isOp();
-        boolean tabCompletionEnabled = plugin.getConfigManager().isTabComplationTrue();
-        boolean opBypass = plugin.getConfigManager().isOpByPassTrue();
-        boolean hasBypassPerm = player.hasPermission("nsctab.bypass.commands.tabcomplation");
-        boolean hasIncludePerm = player.hasPermission("nsctab.include.commands.tabcomplation");
+        boolean isOp                  = player.isOp();
+        boolean tabCompletionEnabled  = plugin.getConfigManager().isTabCompletionEnabled();
+        boolean opBypass              = plugin.getConfigManager().isOpBypassEnabled();
+        boolean hasBypassPerm         = player.hasPermission("nsctab.bypass.commands.tabcomplation");
+        boolean hasIncludePerm        = player.hasPermission("nsctab.include.commands.tabcomplation");
 
+        // OP with bypass → show everything
         if (isOp && opBypass)
         {
-            plugin.getConfigManager().logDebug("OP bypass for " + player.getName());
-            return;
-        }
-        if (!tabCompletionEnabled && !hasIncludePerm)
-        {
-            plugin.getConfigManager().logDebug("Tab completion disabled for " + player.getName());
-            return;
-        }
-        if (hasBypassPerm && !hasIncludePerm)
-        {
-            plugin.getConfigManager().logDebug("Bypass permission for " + player.getName());
+            plugin.getConfigManager().logDebug("Tab-complete: OP bypass for {0}.", player.getName());
             return;
         }
 
-        Set<String> currentCommands = new HashSet<>(event.getCommands());
-        List<String> playerGroups = plugin.getConfigManager().getPlayerGroups(player);
-        Set<String> allowedCommands = plugin.getConfigManager().getGroupsCommands(playerGroups, currentCommands, player);
+        // Global tab-completion disabled (unless player has include permission)
+        if (!tabCompletionEnabled && !hasIncludePerm)
+        {
+            plugin.getConfigManager().logDebug("Tab-complete: disabled globally, skipping filter for {0}.", player.getName());
+            return;
+        }
+
+        // Player has bypass perm and no forced-include perm → skip filter
+        if (hasBypassPerm && !hasIncludePerm)
+        {
+            plugin.getConfigManager().logDebug("Tab-complete: bypass permission for {0}.", player.getName());
+            return;
+        }
+
+        // Resolve which commands the player should see
+        Set<String> currentCommands  = new HashSet<>(event.getCommands());
+        List<String> playerGroups    = plugin.getConfigManager().getPlayerGroups(player);
+        Set<String> allowedCommands  = plugin.getConfigManager().getGroupsCommands(playerGroups, currentCommands, player);
 
         event.getCommands().clear();
         event.getCommands().addAll(allowedCommands);
-        plugin.getConfigManager().logDebug("Filtered tab completion for " + player.getName() + ": " + allowedCommands.size() + " commands");
+
+        plugin.getConfigManager().logDebug(
+            "Tab-complete: {0} sees {1}/{2} commands.",
+            player.getName(), allowedCommands.size(), currentCommands.size()
+        );
     }
 }
