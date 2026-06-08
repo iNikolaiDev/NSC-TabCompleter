@@ -271,16 +271,23 @@ public class NSCTabCompleterCommand implements TabExecutor
             return;
         }
 
-        sender.sendMessage("§8─── §5•§d♦§5• §8── §dv3.0.0 §8── §5• §d« Change Log » §5• §8── §5•§d♦§5• §8───");
+        sender.sendMessage(THIN_BAR);
         sender.sendMessage(" ");
-        sender.sendMessage("  §2•§a♦§2• §aWhat's New:");
+
+        sender.sendMessage(ChatUtil.centerText(ChatUtil.colour("<#a800a8, #f51063, #ff8e44>NSC TabCompleter</#Gradient>")));
+        sender.sendMessage("§r " + ChatUtil.centerText(ChatUtil.colour("<#a800a8, #f51063, #ff8e44>┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄</#Gradient>")));
+        sender.sendMessage(ChatUtil.centerText("§7M E N U §8♦ §7C H A N G E L O G"));
+        
         sender.sendMessage(" ");
-        sender.sendMessage(" §2♦ §aRefactored ConfigurationFileManager for 3.0.0.");
+
+        sender.sendMessage("  §2✦ §aWhat's new §2➜");
         sender.sendMessage(" ");
-        sender.sendMessage(" §4♦ §cFixed blacklist permission check (was checking wrong perm node).");
-        sender.sendMessage(" §4♦ §cFixed isCommandAllowed logic duplication across classes.");
+        sender.sendMessage("  §6✦ §eWhat's changed §6➜");
         sender.sendMessage(" ");
-        sender.sendMessage("§8─── §5•§d♦§5• ─────────────── §5• §d« » §5• ─────────────── §5•§d♦§5• §8───");
+        sender.sendMessage("  §4✦ §cFixes §4➜");
+
+        sender.sendMessage(" ");
+        sender.sendMessage(THIN_BAR);
     }
 
     private void handleUpdate(CommandSender sender, String[] args)
