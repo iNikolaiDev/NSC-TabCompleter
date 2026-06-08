@@ -265,4 +265,9 @@ public final class ChatUtil
         List<T> items = total > 0 ? source.subList(from, to) : Collections.emptyList();
         return new PaginatedResult<>(items, page, pages, total, from, to);
     }
+
+    public static int parseInt(String string, int fallback)
+    {
+        try { return Integer.parseInt(string); } catch (NumberFormatException e) { return fallback; }
+    }
 }

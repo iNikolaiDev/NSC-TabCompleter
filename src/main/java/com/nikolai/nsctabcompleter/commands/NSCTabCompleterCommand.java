@@ -31,6 +31,11 @@ public class NSCTabCompleterCommand implements TabExecutor
     private static final String PREFIX = " §5§l◈ §dNSC §8§l» §d";
     private static final String ERROR  = " §5§l◈ §4§lError §8§l» §c";
 
+    // Badge styles
+    private static final String BADGE_WL  = "§2§l[✔ WHITELIST]§r";
+    private static final String BADGE_BL  = "§4§l[✖ BLACKLIST]§r";
+    private static final String BADGE_OP  = "§e§l[OP]§r";
+
     // Click actions
     private static final ClickEvent.Action RUN = ClickEvent.Action.RUN_COMMAND;
     private static final ClickEvent.Action SUGGEST = ClickEvent.Action.SUGGEST_COMMAND;
@@ -214,7 +219,16 @@ public class NSCTabCompleterCommand implements TabExecutor
 
     private void handleManageGroup(Player player, String[] args)
     {
+        if (args.length < 3)
+        {
+            showGroupList(player, 1);
+            return;
+        }
 
+        switch (args[2].toLowerCase())
+        {
+            case "list"                 -> showGroupList(player, args.length >= 4 ? ChatUtil.parseInt(args[3], 1) : 1);
+        }
     }
 
     private void showGroupList(Player player, int page)
@@ -226,6 +240,11 @@ public class NSCTabCompleterCommand implements TabExecutor
         player.sendMessage(THIN_BAR);
         player.sendMessage(" ");
 
+        player.sendMessage(ChatUtil.centerText(ChatUtil.colour("<#a800a8, #f51063, #ff8e44>NSC TabCompleter</#Gradient>")));
+        player.sendMessage("§r " + ChatUtil.centerText(ChatUtil.colour("<#a800a8, #f51063, #ff8e44>┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄</#Gradient>")));
+        player.sendMessage(ChatUtil.centerText("§7G R O U P" + " §8♦ §7L I S T"));
+        player.sendMessage(" ");
+
         if (entries.isEmpty())
         {
 
@@ -235,7 +254,17 @@ public class NSCTabCompleterCommand implements TabExecutor
             String name = entry.getKey();
             //GroupData group = entry.getValue();
 
-            player.sendMessage(name);
+            player.spigot().sendMessage(buildRow(
+                plainText(" §7➜ "),
+                plainText("§9" + name),
+                plainText(" "),
+                clickButton("§3[INFO]", "§3View commands & details", "nsctabcompleter manage group info " + name + " 1", RUN),
+                plainText(" "),
+                clickButton("§a[EDIT]", "§aEdit group", "/nsctabcompleter manage group edit" + name, RUN),
+                plainText(" "),
+                clickButton("§4[DELETE]", "§4Delete group " + name + "\nConfirm by running the command", "/nsctabcompleter manage group remove" + name, RUN),
+                plainText(" ")
+            ));
         }
 
         player.sendMessage(" ");
