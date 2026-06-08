@@ -23,8 +23,8 @@ public class NSCTabCompleterCommand implements TabExecutor
     private final Main plugin;
 
     // Bars
-    private static final String TOP  = " §8§m                                                         ";
-    private static final String BOTTOM  = " §8§m                                                         ";
+    private static final String THIN_BAR  = " §8§m                                                         ";
+
     // Prefix / feedback
     private static final String PREFIX = " §5§l◈ §dNSC §8§l» §d";
     private static final String ERROR  = " §5§l◈ §4§lError §8§l» §c";
@@ -123,12 +123,12 @@ public class NSCTabCompleterCommand implements TabExecutor
     {
         if (!(sender instanceof Player player))
         {
-            sender.sendMessage(TOP);
+            sender.sendMessage(THIN_BAR);
             sender.sendMessage(" §7[§d✦§7] §5NSC TabCompleter §dv" + Main.plugin.getDescription().getVersion() + " §7| §5Made by §dNikolai");
-            sender.sendMessage(BOTTOM);
+            sender.sendMessage(THIN_BAR);
             return;
         }
-        sender.sendMessage(TOP);
+        sender.sendMessage(THIN_BAR);
         sender.sendMessage(" ");
         sender.sendMessage(ChatUtil.centerText(ChatUtil.colour("<#a800a8, #f51063, #ff8e44>NSC TabCompleter</#Gradient>")));
         sender.sendMessage(ChatUtil.centerText("§7V E R S I O N" + " §8♦ §7" + Main.plugin.getDescription().getVersion()));
@@ -174,7 +174,7 @@ public class NSCTabCompleterCommand implements TabExecutor
         }
 
         sender.sendMessage(" ");
-        sender.sendMessage(BOTTOM);
+        sender.sendMessage(THIN_BAR);
     }
 
     private void sendVersion(CommandSender sender)
@@ -203,7 +203,7 @@ public class NSCTabCompleterCommand implements TabExecutor
             return;
         }
 
-        sender.sendMessage(TOP);
+        sender.sendMessage(THIN_BAR);
         sender.sendMessage(" ");
 
         sender.sendMessage(ChatUtil.centerText(ChatUtil.colour("<#a800a8, #f51063, #ff8e44>NSC TabCompleter</#Gradient>")));
@@ -266,7 +266,7 @@ public class NSCTabCompleterCommand implements TabExecutor
         }
 
         sender.sendMessage(" ");
-        sender.sendMessage(BOTTOM);
+        sender.sendMessage(THIN_BAR);
     }
 
     private void handleChangelog(CommandSender sender)
