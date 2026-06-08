@@ -32,9 +32,9 @@ public class NSCTabCompleterCommand implements TabExecutor
     private static final String ERROR  = " §5§l◈ §4§lError §8§l» §c";
 
     // Badge styles
-    private static final String BADGE_WL  = "§2§l[✔ WHITELIST]§r";
-    private static final String BADGE_BL  = "§4§l[✖ BLACKLIST]§r";
-    private static final String BADGE_OP  = "§e§l[OP]§r";
+    private static final String BADGE_WL  = "§a[✔]§r";
+    private static final String BADGE_BL  = "§c[✘]§r";
+    private static final String BADGE_OP  = "§e[OP]§r";
 
     // Click actions
     private static final ClickEvent.Action RUN = ClickEvent.Action.RUN_COMMAND;
@@ -261,17 +261,17 @@ public class NSCTabCompleterCommand implements TabExecutor
         else for (Map.Entry<String, GroupData> entry : paged.items)
         {
             String name = entry.getKey();
-            //GroupData group = entry.getValue();
+            GroupData group = entry.getValue();
 
             player.spigot().sendMessage(buildRow(
                 plainText(" §b♦ "),
-                plainText("§9" + name),
-                plainText("  "),
-                clickButton("§6[INFO]", "§6View commands & details", "nsctabcompleter manage group info " + name + " 1", RUN),
+                plainText("§9" + name + " " + (group.isWhitelist() ? BADGE_WL : BADGE_BL)),
+                plainText(" §7§l◈ "),
+                clickButton("§6[§l𝐢§6]", "§6➜ Info\nView commands & details", "nsctabcompleter manage group info " + name + " 1", RUN),
                 plainText(" "),
-                clickButton("§b[EDIT]", "§bEdit group", "/nsctabcompleter manage group edit" + name, RUN),
+                clickButton("§b[🛠]", "§b➜ Edit\nEdit group" + name, "/nsctabcompleter manage group edit" + name, RUN),
                 plainText(" "),
-                clickButton("§4[§l✗§4]", "§4Delete group " + name + "\nConfirm by running the command", "/nsctabcompleter manage group remove" + name, RUN),
+                clickButton("§4[§l✗§4]", "§4➜ Delete group " + name + "\nConfirm by running the command", "/nsctabcompleter manage group remove" + name, RUN),
                 plainText(" ")
             ));
         }
