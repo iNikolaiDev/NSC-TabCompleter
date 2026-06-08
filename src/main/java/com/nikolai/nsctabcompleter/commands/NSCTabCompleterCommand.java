@@ -47,31 +47,25 @@ public class NSCTabCompleterCommand implements TabExecutor
 
         if (args.length == 1)
         {
-            completions.addAll(List.of("reload", "help", "group", "version", "update", "changelog"));
+            completions.addAll(List.of("reload", "version", "help", "manage", "update", "changelog"));
             return filterStartsWith(completions, args[0]);
         }
 
-        String sub = args[0].toLowerCase();
-
-        if (args.length == 2)
+        switch (args[0].toLowerCase())
         {
-            if (sub.equals("group"))  completions.add("info");
-            if (sub.equals("update")) completions.addAll(List.of("all", "player"));
-            if (sub.equals("help")) completions.addAll(List.of("group", "other"));
-            return filterStartsWith(completions, args[1]);
-        }
-
-        if (args.length == 3)
-        {
-            if (sub.equals("update") && args[1].equalsIgnoreCase("player"))
-            {
-                Bukkit.getOnlinePlayers().forEach(p -> completions.add(p.getName()));
+            case "help" -> {
+                if (args.length == 2)
+                    completions.addAll(List.of("group", "other"));
             }
-            if (sub.equals("group") && args[1].equalsIgnoreCase("info"))
-            {
-                completions.addAll(plugin.getConfigManager().getCurrentGroups().keySet());
+            case "manage" -> {
+                if (args.length == 2)
+                    completions.addAll(List.of("group", "settings", "commands", "permissions", "players"));
             }
-            return filterStartsWith(completions, args[2]);
+            case "update" -> {
+                if (args.length == 2) completions.addAll(List.of("all", "player"));
+                if (args.length == 3 && args[1].equalsIgnoreCase("player"))
+                    Bukkit.getOnlinePlayers().forEach(p -> completions.add(p.getName()));
+            }
         }
 
         return completions;
