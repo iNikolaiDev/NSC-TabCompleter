@@ -1,7 +1,7 @@
 package com.nikolai.nsctabcompleter.commands;
 
 import com.nikolai.nsctabcompleter.Main;
-import com.nikolai.nsctabcompleter.utilities.Colorization;
+import com.nikolai.nsctabcompleter.utilities.ChatUtil;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.HoverEvent;
@@ -23,8 +23,8 @@ public class NSCTabCompleterCommand implements TabExecutor
     private final Main plugin;
 
     // Bars
-    private static final String TOP  = " §8§m                                                      ";
-    private static final String BOTTOM  = " §8§m                                                      ";
+    private static final String TOP  = " §8§m                                                         ";
+    private static final String BOTTOM  = " §8§m                                                         ";
     // Prefix / feedback
     private static final String PREFIX = " §5§l◈ §dNSC §8§l» §d";
     private static final String ERROR  = " §5§l◈ §4§lError §8§l» §c";
@@ -132,8 +132,8 @@ public class NSCTabCompleterCommand implements TabExecutor
         }
         sender.sendMessage(TOP);
         sender.sendMessage(" ");
-        sender.sendMessage("                   " + Colorization.applyColorization("<#a800a8, #f51063, #ff8e44>NSC TabCompleter</#Gradient>"));
-        sender.sendMessage("§7            V E R S I O N" + " §8♦ §7" + Main.plugin.getDescription().getVersion());
+        sender.sendMessage(ChatUtil.centerText(ChatUtil.colour("<#a800a8, #f51063, #ff8e44>NSC TabCompleter</#Gradient>")));
+        sender.sendMessage(ChatUtil.centerText("§7V E R S I O N" + " §8♦ §7" + Main.plugin.getDescription().getVersion()));
         sender.sendMessage(" ");
 
         player.spigot().sendMessage(buildRow(
@@ -196,7 +196,7 @@ public class NSCTabCompleterCommand implements TabExecutor
         Bukkit.getOnlinePlayers().forEach(Player::updateCommands);
         sender.sendMessage(PREFIX + "Configuration reloaded successfully.");
     }
-    public static String centerText(String text)
+    /*public static String centerText(String text)
     {
         if (text == null || text.isEmpty())
             return "";
@@ -208,7 +208,7 @@ public class NSCTabCompleterCommand implements TabExecutor
         int padding = Math.max(0, (CHAT_WIDTH - plain.length()) / 2);
     
         return " ".repeat(padding) + text;
-    }
+    }*/
     private void handleHelp(CommandSender sender, String[] args)
     {
         if (!sender.hasPermission("nsctab.help"))
@@ -220,8 +220,8 @@ public class NSCTabCompleterCommand implements TabExecutor
         sender.sendMessage(TOP);
         sender.sendMessage(" ");
 
-        sender.sendMessage(centerText(Colorization.applyColorization("<#a800a8, #f51063, #ff8e44>NSC TabCompleter</#Gradient>")));
-        sender.sendMessage(centerText(Colorization.applyColorization("<#a800a8, #f51063, #ff8e44>┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄</#Gradient>")));
+        sender.sendMessage(ChatUtil.centerText(ChatUtil.colour("<#a800a8, #f51063, #ff8e44>NSC TabCompleter</#Gradient>")));
+        sender.sendMessage("§r " + ChatUtil.centerText(ChatUtil.colour("<#a800a8, #f51063, #ff8e44>┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄</#Gradient>")));
 
         String category = args.length > 1 ? args[1].toLowerCase(Locale.ROOT) : "";
 
@@ -229,7 +229,7 @@ public class NSCTabCompleterCommand implements TabExecutor
         {
             case "group":
             {
-                sender.sendMessage(centerText("§7M A N A G E  G R O U P"));
+                sender.sendMessage(ChatUtil.centerText("§7M A N A G E  G R O U P"));
                 sender.sendMessage(" ");
 
                 helpRow(sender, "§rInfo", "/nsctabcompleter manage group info", "           §7‹ Group details. ›");
@@ -242,7 +242,7 @@ public class NSCTabCompleterCommand implements TabExecutor
             }
             default:
             {
-                sender.sendMessage(centerText("§7M E N U §8♦ §7H E L P"));
+                sender.sendMessage(ChatUtil.centerText("§7M E N U §8♦ §7H E L P"));
                 sender.sendMessage(" ");
 
                 helpRow(sender, "§rReload", "/nsctabcompleter reload", "          §7‹ Reload configuration file. ›");

@@ -2,7 +2,7 @@ package com.nikolai.nsctabcompleter.listeners;
 
 import com.nikolai.nsctabcompleter.ConfigurationFileManager;
 import com.nikolai.nsctabcompleter.Main;
-import com.nikolai.nsctabcompleter.utilities.Colorization;
+import com.nikolai.nsctabcompleter.utilities.ChatUtil;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -90,7 +90,7 @@ public class CommandBlockerListener implements Listener
     private void block(PlayerCommandPreprocessEvent event, Player player, String command, String reason)
     {
         event.setCancelled(true);
-        player.sendMessage(Colorization.applyColorization(configManager.insufficientPermissionMessage()));
+        player.sendMessage(ChatUtil.colour(configManager.insufficientPermissionMessage()));
         configManager.logDebug("Command ''{0}'' blocked for {1} — reason: {2}.", command, player.getName(), reason);
     }
 }
