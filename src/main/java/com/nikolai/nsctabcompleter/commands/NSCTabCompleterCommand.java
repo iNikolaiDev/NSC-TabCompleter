@@ -15,6 +15,7 @@ import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class NSCTabCompleterCommand implements TabExecutor
@@ -22,9 +23,8 @@ public class NSCTabCompleterCommand implements TabExecutor
     private final Main plugin;
 
     // Bars
-    private static final String TOP  = "§8§l╭§8§m                                                      §8§l╮";
-    private static final String BOTTOM  = "§8§l╰§8§m                                                      §8§l╯";
-
+    private static final String TOP  = " §8§m                                                      ";
+    private static final String BOTTOM  = " §8§m                                                      ";
     // Prefix / feedback
     private static final String PREFIX = " §5§l◈ §dNSC §8§l» §d";
     private static final String ERROR  = " §5§l◈ §4§lError §8§l» §c";
@@ -57,8 +57,9 @@ public class NSCTabCompleterCommand implements TabExecutor
 
         if (args.length == 2)
         {
-            if (sub.equals("group"))  completions.add("information");
+            if (sub.equals("group"))  completions.add("info");
             if (sub.equals("update")) completions.addAll(List.of("all", "player"));
+            if (sub.equals("help")) completions.addAll(List.of("group", "other"));
             return filterStartsWith(completions, args[1]);
         }
 
@@ -68,7 +69,7 @@ public class NSCTabCompleterCommand implements TabExecutor
             {
                 Bukkit.getOnlinePlayers().forEach(p -> completions.add(p.getName()));
             }
-            if (sub.equals("group") && args[1].equalsIgnoreCase("information"))
+            if (sub.equals("group") && args[1].equalsIgnoreCase("info"))
             {
                 completions.addAll(plugin.getConfigManager().getCurrentGroups().keySet());
             }
@@ -102,15 +103,15 @@ public class NSCTabCompleterCommand implements TabExecutor
         {
             case "version"   -> sendVersion(sender);
             case "reload"    -> handleReload(sender);
-            case "help"      -> handleHelp(sender);
+            case "help"      -> handleHelp(sender, args);
             case "changelog" -> handleChangelog(sender);
             case "update"    -> handleUpdate(sender, args);
             case "group"     ->
             {
-                if (args.length >= 2 && args[1].equalsIgnoreCase("information"))
+                if (args.length >= 2 && args[1].equalsIgnoreCase("info"))
                     handleGroupInfo(sender, args);
                 else
-                    sender.sendMessage(ERROR + "Usage: /nsctabcompleter group information <group>");
+                    sender.sendMessage(ERROR + "Usage: /nsctabcompleter group info <group>");
             }
             default -> sender.sendMessage(ERROR + "Unknown sub-command. Use §5/nsctabcompleter help§d.");
         }
@@ -195,8 +196,20 @@ public class NSCTabCompleterCommand implements TabExecutor
         Bukkit.getOnlinePlayers().forEach(Player::updateCommands);
         sender.sendMessage(PREFIX + "Configuration reloaded successfully.");
     }
-
-    private void handleHelp(CommandSender sender)
+    public static String centerText(String text)
+    {
+        if (text == null || text.isEmpty())
+            return "";
+    
+        String plain = text.replaceAll("§[0-9a-fk-orx]", "");
+    
+        final int CHAT_WIDTH = 65;
+    
+        int padding = Math.max(0, (CHAT_WIDTH - plain.length()) / 2);
+    
+        return " ".repeat(padding) + text;
+    }
+    private void handleHelp(CommandSender sender, String[] args)
     {
         if (!sender.hasPermission("nsctab.help"))
         {
@@ -204,21 +217,54 @@ public class NSCTabCompleterCommand implements TabExecutor
             return;
         }
 
-        sender.sendMessage("§8─── §5•§d♦§5• §8── §5• §d« Help » §5• §8─────────────── §5•§d♦§5• §8───");
+        sender.sendMessage(TOP);
         sender.sendMessage(" ");
-        sender.sendMessage("  §8•§r♦§8• §7Sub-commands");
+
+        sender.sendMessage(centerText(Colorization.applyColorization("<#a800a8, #f51063, #ff8e44>NSC TabCompleter</#Gradient>")));
+        sender.sendMessage(centerText(Colorization.applyColorization("<#a800a8, #f51063, #ff8e44>┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄</#Gradient>")));
+
+        String category = args.length > 1 ? args[1].toLowerCase(Locale.ROOT) : "";
+
+        switch (category)
+        {
+            case "group":
+            {
+                sender.sendMessage(centerText("§7M A N A G E  G R O U P"));
+                sender.sendMessage(" ");
+
+                helpRow(sender, "§rInfo", "/nsctabcompleter manage group info", "           §7‹ Group details. ›");
+                break;
+            }
+            case "other":
+            {
+
+                break;
+            }
+            default:
+            {
+                sender.sendMessage(centerText("§7M E N U §8♦ §7H E L P"));
+                sender.sendMessage(" ");
+
+                helpRow(sender, "§rReload", "/nsctabcompleter reload", "          §7‹ Reload configuration file. ›");
+                helpRow(sender, "§rManage", "/nsctabcompleter manage ", "         §7‹ Management tools. ›");
+                helpRow(sender, "§rUpdate", "/nsctabcompleter update ", "          §7‹ Refresh player commands. ›");
+                helpRow(sender, "§rVersion", "/nsctabcompleter version", "         §7‹ Show current version of plugin. ›");
+                helpRow(sender, "§rChangelog", "/nsctabcompleter changelog", "      §7‹ Show latest changelog. ›");
+
+                sender.sendMessage(" ");
+
+                sender.spigot().sendMessage(buildRow(
+                    plainText(" §7➜ "),
+                    clickButton("§3[MANAGE GROUP]", "§3Manage groups help", "/nsctabcompleter help group", RUN),
+                    plainText(" "),
+                    clickButton("§6[MANAGE OTHER]", "§6Manage other things help", "/nsctabcompleter help other", RUN)
+                ));
+                break;
+            }
+        }
+
         sender.sendMessage(" ");
-        sender.sendMessage(" §8♦ §rReload      §7‹ Reload configuration file. ›");
-        sender.sendMessage(" §8♦ §rGroup       §7‹ Manage groups. ›");
-        sender.sendMessage(" §8♦ §rVersion     §7‹ Show current plugin version. ›");
-        sender.sendMessage(" §8♦ §rChangelog   §7‹ Show update changelog. ›");
-        sender.sendMessage(" §8♦ §rUpdate      §7‹ Update player command lists. ›");
-        sender.sendMessage(" ");
-        sender.sendMessage("  §8•§r♦§8• §dGroup §7sub-command args");
-        sender.sendMessage(" ");
-        sender.sendMessage(" §8♦ §rInformation §7‹ Get group info. ›");
-        sender.sendMessage(" ");
-        sender.sendMessage("§8─── §5•§d♦§5• ─────────────── §5• §d« » §5• ─────────────── §5•§d♦§5• §8───");
+        sender.sendMessage(BOTTOM);
     }
 
     private void handleChangelog(CommandSender sender)
@@ -342,5 +388,20 @@ public class NSCTabCompleterCommand implements TabExecutor
     private BaseComponent[] buildRow(BaseComponent... parts)
     {
         return parts;
+    }
+
+    private void helpRow(CommandSender sender, String label, String command, String description)
+    {
+        if (!(sender instanceof Player player))
+            {
+                sender.sendMessage("- " + label);
+                return;
+        }
+
+        player.spigot().sendMessage(buildRow(
+            plainText(" §e♦ "),
+            clickButton(label, "§7Click to auto-fill\n§f" + command, command, SUGGEST),
+            plainText(description)
+        ));
     }
 }
