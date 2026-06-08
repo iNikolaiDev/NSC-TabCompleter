@@ -6,7 +6,7 @@ plugins
 }
 
 group = 'com.nikolai'
-version = '3.0.0-SNAPSHOT'
+version = '2.3.4'
 
 repositories
 {
