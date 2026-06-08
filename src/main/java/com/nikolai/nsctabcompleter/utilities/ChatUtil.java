@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
  * ChatUtil — lightweight chat utility for NSC TabCompleter.
  *
  * colour(String)     → applies hex, gradient, and & codes
- * centerText(String) → pixel-accurate chat centering (320px wide)
+ * centerText(String) → pixel-accurate chat centering (300px wide)
  */
 public final class ChatUtil
 {

@@ -28,12 +28,10 @@ public class NSCTabCompleterCommand implements TabExecutor
     // Prefix / feedback
     private static final String PREFIX = " §5§l◈ §dNSC §8§l» §d";
     private static final String ERROR  = " §5§l◈ §4§lError §8§l» §c";
-    private static final String BULL   = " §5◆ §7";
 
     // Click actions
     private static final ClickEvent.Action RUN = ClickEvent.Action.RUN_COMMAND;
     private static final ClickEvent.Action SUGGEST = ClickEvent.Action.SUGGEST_COMMAND;
-    private static final ClickEvent.Action OPEN = ClickEvent.Action.OPEN_URL;
 
     public NSCTabCompleterCommand(Main plugin)
     {
@@ -232,7 +230,7 @@ public class NSCTabCompleterCommand implements TabExecutor
                 sender.sendMessage(ChatUtil.centerText("§7M A N A G E  G R O U P"));
                 sender.sendMessage(" ");
 
-                helpRow(sender, "§rInfo", "/nsctabcompleter manage group info", "           §7‹ Group details. ›");
+                helpRow(sender, "§rInfo", "/nsctabcompleter manage group info", "              §7‹ Group details. ›");
                 break;
             }
             case "other":
@@ -245,11 +243,11 @@ public class NSCTabCompleterCommand implements TabExecutor
                 sender.sendMessage(ChatUtil.centerText("§7M E N U §8♦ §7H E L P"));
                 sender.sendMessage(" ");
 
-                helpRow(sender, "§rReload", "/nsctabcompleter reload", "          §7‹ Reload configuration file. ›");
-                helpRow(sender, "§rManage", "/nsctabcompleter manage ", "         §7‹ Management tools. ›");
-                helpRow(sender, "§rUpdate", "/nsctabcompleter update ", "          §7‹ Refresh player commands. ›");
-                helpRow(sender, "§rVersion", "/nsctabcompleter version", "         §7‹ Show current version of plugin. ›");
-                helpRow(sender, "§rChangelog", "/nsctabcompleter changelog", "      §7‹ Show latest changelog. ›");
+                helpRow(sender, "§rReload", "/nsctabcompleter reload", "              §7‹ Reload configuration file. ›");
+                helpRow(sender, "§rManage", "/nsctabcompleter manage ", "             §7‹ Management tools. ›");
+                helpRow(sender, "§rUpdate", "/nsctabcompleter update ", "              §7‹ Refresh player commands. ›");
+                helpRow(sender, "§rVersion", "/nsctabcompleter version", "             §7‹ Show current version of plugin. ›");
+                helpRow(sender, "§rChangelog", "/nsctabcompleter changelog", "          §7‹ Show latest changelog. ›");
 
                 sender.sendMessage(" ");
 
