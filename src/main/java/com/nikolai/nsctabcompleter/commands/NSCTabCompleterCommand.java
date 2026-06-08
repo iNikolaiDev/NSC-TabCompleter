@@ -203,8 +203,17 @@ public class NSCTabCompleterCommand implements TabExecutor
             sender.sendMessage(THIN_BAR);
             return;
         }
+
+        switch (args[1].toLowerCase())
+        {
+            case "group"       -> handleManageGroup(p, args);
+        }
     }
 
+    private void handleManageGroup(Player player, String[] args)
+    {
+
+    }
     private void sendVersion(CommandSender sender)
     {
         sender.sendMessage(PREFIX + "Current version: §5v" + Main.plugin.getDescription().getVersion());
