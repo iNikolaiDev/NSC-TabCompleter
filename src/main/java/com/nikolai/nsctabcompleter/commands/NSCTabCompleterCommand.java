@@ -194,19 +194,7 @@ public class NSCTabCompleterCommand implements TabExecutor
         Bukkit.getOnlinePlayers().forEach(Player::updateCommands);
         sender.sendMessage(PREFIX + "Configuration reloaded successfully.");
     }
-    /*public static String centerText(String text)
-    {
-        if (text == null || text.isEmpty())
-            return "";
-    
-        String plain = text.replaceAll("§[0-9a-fk-orx]", "");
-    
-        final int CHAT_WIDTH = 65;
-    
-        int padding = Math.max(0, (CHAT_WIDTH - plain.length()) / 2);
-    
-        return " ".repeat(padding) + text;
-    }*/
+
     private void handleHelp(CommandSender sender, String[] args)
     {
         if (!sender.hasPermission("nsctab.help"))
