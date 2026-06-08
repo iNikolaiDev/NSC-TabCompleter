@@ -60,6 +60,14 @@ public class NSCTabCompleterCommand implements TabExecutor
             case "manage" -> {
                 if (args.length == 2)
                     completions.addAll(List.of("group", "settings", "commands", "permissions", "players"));
+
+                if (args.length == 3)
+                {
+                    switch (args[1].toLowerCase()) 
+                    {
+                        case "group"       -> completions.addAll(List.of("list", "info"));
+                    }
+                }
             }
             case "update" -> {
                 if (args.length == 2) completions.addAll(List.of("all", "player"));
@@ -98,13 +106,7 @@ public class NSCTabCompleterCommand implements TabExecutor
             case "help"      -> handleHelp(sender, args);
             case "changelog" -> handleChangelog(sender);
             case "update"    -> handleUpdate(sender, args);
-            case "group"     ->
-            {
-                if (args.length >= 2 && args[1].equalsIgnoreCase("info"))
-                    handleGroupInfo(sender, args);
-                else
-                    sender.sendMessage(ERROR + "Usage: /nsctabcompleter group info <group>");
-            }
+            case "manage"    -> handleManage(sender, args);
             default -> sender.sendMessage(ERROR + "Unknown sub-command. Use §5/nsctabcompleter help§d.");
         }
 
@@ -173,6 +175,34 @@ public class NSCTabCompleterCommand implements TabExecutor
 
         sender.sendMessage(" ");
         sender.sendMessage(THIN_BAR);
+    }
+
+    private void handleManage(CommandSender sender, String[] args)
+    {
+        if (!(sender instanceof Player p))
+        {
+            return;
+        }
+
+        if (!p.hasPermission("nsctab.reload"))
+        {
+            p.sendMessage(ERROR + "You don't have permission!");
+            return;
+        }
+
+        if (args.length < 2)
+        {
+            sender.sendMessage(THIN_BAR);
+            sender.sendMessage(" ");
+
+            sender.sendMessage(ChatUtil.centerText(ChatUtil.colour("<#a800a8, #f51063, #ff8e44>NSC TabCompleter</#Gradient>")));
+            sender.sendMessage("§r " + ChatUtil.centerText(ChatUtil.colour("<#a800a8, #f51063, #ff8e44>┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄</#Gradient>")));
+            sender.sendMessage(ChatUtil.centerText("§7M E N U" + " §8♦ §7M A N A G E"));
+
+            sender.sendMessage(" ");
+            sender.sendMessage(THIN_BAR);
+            return;
+        }
     }
 
     private void sendVersion(CommandSender sender)
