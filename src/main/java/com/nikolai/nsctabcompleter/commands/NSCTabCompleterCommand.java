@@ -231,11 +231,27 @@ public class NSCTabCompleterCommand implements TabExecutor
                 sender.sendMessage(" ");
 
                 helpRow(sender, "§rInfo", "/nsctabcompleter manage group info", "              §7‹ Group details. ›");
+
+                sender.sendMessage(" ");
+
+                sender.spigot().sendMessage(buildRow(
+                    plainText(" §7➜ "),
+                    clickButton("§e[MAIN MENU]", "§eReturn to main menu", "/nsctabcompleter help", RUN),
+                    plainText(" "),
+                    clickButton("§6[MANAGE OTHER]", "§6Manage other things help", "/nsctabcompleter help other", RUN)
+                ));
                 break;
             }
             case "other":
             {
+                sender.sendMessage(" ");
 
+                sender.spigot().sendMessage(buildRow(
+                    plainText(" §7➜ "),
+                    clickButton("§e[MAIN MENU]", "§eReturn to main menu", "/nsctabcompleter help", RUN),
+                    plainText(" "),
+                    clickButton("§6[MANAGE GROUP]", "§6Manage groups help", "/nsctabcompleter help group", RUN)
+                ));
                 break;
             }
             default:
