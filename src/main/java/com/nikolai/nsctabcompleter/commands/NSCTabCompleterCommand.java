@@ -118,10 +118,14 @@ public class NSCTabCompleterCommand implements TabExecutor
         if (!(sender instanceof Player player))
         {
             sender.sendMessage(THIN_BAR);
-            sender.sendMessage(" §7[§d✦§7] §5NSC TabCompleter §dv" + Main.plugin.getDescription().getVersion() + " §7| §5Made by §dNikolai");
+            sender.sendMessage(" ");
+            sender.sendMessage("                     §8NSC TabCompleter");
+            sender.sendMessage("              §7V E R S I O N" + " §8♦ §7" + Main.plugin.getDescription().getVersion());
+            sender.sendMessage(" ");
             sender.sendMessage(THIN_BAR);
             return;
         }
+
         sender.sendMessage(THIN_BAR);
         sender.sendMessage(" ");
         sender.sendMessage(ChatUtil.centerText(ChatUtil.colour("<#a800a8, #f51063, #ff8e44>NSC TabCompleter</#Gradient>")));
