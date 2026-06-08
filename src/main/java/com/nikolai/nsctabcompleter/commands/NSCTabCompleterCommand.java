@@ -255,7 +255,7 @@ public class NSCTabCompleterCommand implements TabExecutor
             //GroupData group = entry.getValue();
 
             player.spigot().sendMessage(buildRow(
-                plainText(" §7➜ "),
+                plainText(" §b♦ "),
                 plainText("§9" + name),
                 plainText(" "),
                 clickButton("§3[INFO]", "§3View commands & details", "nsctabcompleter manage group info " + name + " 1", RUN),
@@ -266,6 +266,14 @@ public class NSCTabCompleterCommand implements TabExecutor
                 plainText(" ")
             ));
         }
+
+        player.sendMessage(" ");
+
+        player.spigot().sendMessage(buildRow(
+            plainText(" §7➜ "),
+            clickButton("§a[+ NEW GROUP]", "§aCreate a new group", "/nsctabcompleter manage group create ", SUGGEST)
+
+        ));
 
         player.sendMessage(" ");
         player.sendMessage(THIN_BAR);
