@@ -5,7 +5,6 @@ settings:
   op-bypass: false
   prioritization-enabled: true
   debug: false
-  quick-statistics: true
   insufficient-permission-message: " <#a800a8, #f51063, #ff8e44>♦ NSC TabCompleter</#Gradient> &#ff8e44&l› &#FFFFFFThis command doesn't exists."
 
 groups:

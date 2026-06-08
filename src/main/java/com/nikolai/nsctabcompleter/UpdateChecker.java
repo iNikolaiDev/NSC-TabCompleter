@@ -9,7 +9,6 @@ import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.URI;
 import java.net.URL;
 import java.util.function.Consumer;
 
@@ -35,7 +34,7 @@ public class UpdateChecker
             try
             {
                 String apiUrl = "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/releases/latest";
-                URL url = new URI(apiUrl).toURL();
+                URL url = new URL(apiUrl);
                 HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
 
                 connection.setRequestMethod("GET");
