@@ -3,6 +3,8 @@ package com.nikolai.nsctabcompleter.utilities;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,6 +27,10 @@ public final class ChatUtil
 
     // ── Version check cached once at class-load ───────────────────
     private static final boolean SUPPORTS_HEX = supportsHex();
+
+    // ── Pagination ─────────────────────────────────────────────────
+    private static final int PER_PAGE = 8;
+    public static final int GRP_PAGE = 6;
 
     private static boolean supportsHex()
     {
@@ -226,5 +232,37 @@ public final class ChatUtil
         }
 
         return width;
+    }
+
+    // ══════════════════════════════════════════════════════════════
+    //  PAGINATION  — generic, reusable
+    // ══════════════════════════════════════════════════════════════
+
+    public static class PaginatedResult<T>
+    {
+        public final List<T> items;
+        final int     page, pages, total, from, to;
+
+        PaginatedResult(List<T> items, int page, int pages, int total, int from, int to)
+        {
+            this.items = items;
+            this.page  = page;
+            this.pages = pages;
+            this.total = total;
+            this.from  = from;
+            this.to    = to;
+        }
+    }
+
+    /** Paginates any list and returns a PaginatedResult. */
+    public static <T> PaginatedResult<T> paginate(List<T> source, int page, int perPage)
+    {
+        int total = source.size();
+        int pages = Math.max(1, (int) Math.ceil(total / (double) perPage));
+        page      = Math.max(1, Math.min(page, pages));
+        int from  = (page - 1) * perPage;
+        int to    = Math.min(from + perPage, total);
+        List<T> items = total > 0 ? source.subList(from, to) : Collections.emptyList();
+        return new PaginatedResult<>(items, page, pages, total, from, to);
     }
 }

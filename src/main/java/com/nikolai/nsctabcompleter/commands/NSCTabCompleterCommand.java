@@ -1,5 +1,6 @@
 package com.nikolai.nsctabcompleter.commands;
 
+import com.nikolai.nsctabcompleter.ConfigurationFileManager.GroupData;
 import com.nikolai.nsctabcompleter.Main;
 import com.nikolai.nsctabcompleter.utilities.ChatUtil;
 import net.md_5.bungee.api.chat.BaseComponent;
@@ -16,6 +17,7 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class NSCTabCompleterCommand implements TabExecutor
@@ -214,6 +216,32 @@ public class NSCTabCompleterCommand implements TabExecutor
     {
 
     }
+
+    private void showGroupList(Player player, int page)
+    {
+        List<Map.Entry<String, GroupData>> entries = new ArrayList<>(plugin.getConfigManager().getCurrentGroups().entrySet());
+
+        ChatUtil.PaginatedResult<Map.Entry<String, GroupData>> paged = ChatUtil.paginate(entries, page, ChatUtil.GRP_PAGE);
+
+        player.sendMessage(THIN_BAR);
+        player.sendMessage(" ");
+
+        if (entries.isEmpty())
+        {
+
+        }
+        else for (Map.Entry<String, GroupData> entry : paged.items)
+        {
+            String name = entry.getKey();
+            //GroupData group = entry.getValue();
+
+            player.sendMessage(name);
+        }
+
+        player.sendMessage(" ");
+        player.sendMessage(THIN_BAR);
+    }
+
     private void sendVersion(CommandSender sender)
     {
         sender.sendMessage(PREFIX + "Current version: §5v" + Main.plugin.getDescription().getVersion());
