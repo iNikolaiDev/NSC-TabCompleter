@@ -266,6 +266,10 @@ public final class ChatUtil
         return new PaginatedResult<>(items, page, pages, total, from, to);
     }
 
+    // ══════════════════════════════════════════════════════════════
+    //  OTHER
+    // ══════════════════════════════════════════════════════════════
+
     public static int parseInt(String string, int fallback)
     {
         try { return Integer.parseInt(string); } catch (NumberFormatException e) { return fallback; }

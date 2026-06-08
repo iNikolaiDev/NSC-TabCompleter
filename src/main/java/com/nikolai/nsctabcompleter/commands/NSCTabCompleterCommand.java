@@ -247,7 +247,16 @@ public class NSCTabCompleterCommand implements TabExecutor
 
         if (entries.isEmpty())
         {
-
+            player.sendMessage(" ");
+            player.sendMessage(" §b♦ &9No groups yet.");
+            player.sendMessage(" ");
+            player.spigot().sendMessage(buildRow(
+                plainText(" §7➜ "),
+                clickButton("§a[+ CREATE FIRST GROUP]", "§aCreate your first group", "/nsctabcompleter manage group create ", SUGGEST)
+    
+            ));
+            player.sendMessage(" ");
+            player.sendMessage(THIN_BAR);
         }
         else for (Map.Entry<String, GroupData> entry : paged.items)
         {
@@ -257,12 +266,12 @@ public class NSCTabCompleterCommand implements TabExecutor
             player.spigot().sendMessage(buildRow(
                 plainText(" §b♦ "),
                 plainText("§9" + name),
+                plainText("  "),
+                clickButton("§6[INFO]", "§6View commands & details", "nsctabcompleter manage group info " + name + " 1", RUN),
                 plainText(" "),
-                clickButton("§3[INFO]", "§3View commands & details", "nsctabcompleter manage group info " + name + " 1", RUN),
+                clickButton("§b[EDIT]", "§bEdit group", "/nsctabcompleter manage group edit" + name, RUN),
                 plainText(" "),
-                clickButton("§a[EDIT]", "§aEdit group", "/nsctabcompleter manage group edit" + name, RUN),
-                plainText(" "),
-                clickButton("§4[DELETE]", "§4Delete group " + name + "\nConfirm by running the command", "/nsctabcompleter manage group remove" + name, RUN),
+                clickButton("§4[§l✗§4]", "§4Delete group " + name + "\nConfirm by running the command", "/nsctabcompleter manage group remove" + name, RUN),
                 plainText(" ")
             ));
         }
